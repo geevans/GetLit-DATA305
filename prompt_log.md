@@ -147,6 +147,82 @@ My second prompt is the quiz prompt which will build a brief quiz specifically t
       }}
       """
       Resulting Output:
+      {
+  "questions": [
+    {
+      "id": "Q1",
+      "area": "online safety",
+      "question": "While playing your favorite online multiplayer game, another player sends you a chat message offering free in-game currency if you just give them your username and password. What is the safest thing to do?",
+      "options": [
+        "A. Give them your password but change it right after you get the currency.",
+        "B. Ignore the message, block the user, and never share your password.",
+        "C. Give them a fake password to see what happens.",
+        "D. Ask your older sister if it seems like a good deal before sharing."
+      ],
+      "correct_answer": "B. Ignore the message, block the user, and never share your password."
+    },
+    {
+      "id": "Q2",
+      "area": "media literacy",
+      "question": "You are watching YouTube tutorials to learn about video editing, and you see a recommended video with a thumbnail that says 'SECRET TRICK: Get 1 Million Subscribers Overnight!' How should you treat this video?",
+      "options": [
+        "A. Believe it completely because the video has a lot of views.",
+        "B. Try the trick immediately so you can grow your new channel.",
+        "C. Understand it is likely 'clickbait' designed to get views, rather than a guaranteed fact.",
+        "D. Share it with all your friends so they can get famous too."
+      ],
+      "correct_answer": "C. Understand it is likely 'clickbait' designed to get views, rather than a guaranteed fact."
+    },
+    {
+      "id": "Q3",
+      "area": "responsible AI use",
+      "question": "You want to create a cool profile picture for your new YouTube channel. You decide to use an AI image generator to help. What is the most responsible way to use this tool?",
+      "options": [
+        "A. Generate an image and tell your viewers you drew it all by yourself.",
+        "B. Type in a prompt, download the image, and claim full legal copyright over the artwork.",
+        "C. Ask the AI to exactly copy a specific digital artist's drawing so you can use it without paying them.",
+        "D. Use the AI to brainstorm ideas and color palettes, then use your drawing skills to create your own unique logo."
+      ],
+      "correct_answer": "D. Use the AI to brainstorm ideas and color palettes, then use your drawing skills to create your own unique logo."
+    },
+    {
+      "id": "Q4",
+      "area": "file/device management",
+      "question": "You are starting to record your gaming sessions to edit into YouTube videos, but your computer screen keeps popping up with a 'Storage Space Running Out' warning. What is the best way to manage your files?",
+      "options": [
+        "A. Delete random folders in your operating system to make room for your videos.",
+        "B. Keep all your raw video clips on your desktop so they are easy to find.",
+        "C. Move your older, finished videos to an external hard drive or cloud storage to free up space.",
+        "D. Search Google for a website where you can 'download more computer storage'."
+      ],
+      "correct_answer": "C. Move your older, finished videos to an external hard drive or cloud storage to free up space."
+    },
+    {
+      "id": "Q5",
+      "area": "file/device management",
+      "question": "You have game clips, background music, and digital drawings saved all over your computer. When you open your video editor, it is taking you a long time to find the files you need. What should you do?",
+      "options": [
+        "A. Create a main folder for your YouTube channel with subfolders like 'Video Clips', 'Audio', and 'Images'.",
+        "B. Just use the search bar every time you need a file, even if it takes longer.",
+        "C. Rename every single file to 'YouTubeVideo' so they all match.",
+        "D. Ask your sister to search through your computer and find the files for you every time you edit."
+      ],
+      "correct_answer": "A. Create a main folder for your YouTube channel with subfolders like 'Video Clips', 'Audio', and 'Images'."
+    },
+    {
+      "id": "Q6",
+      "area": "online safety",
+      "question": "You run into a technical problem while trying to record your game, so you 'Google it' to find a fix. The first search result is an unknown blog telling you to download a special '.exe' program to fix the glitch. What should you do?",
+      "options": [
+        "A. Download and run the file immediately since it was the first Google search result.",
+        "B. Check the official game website or trusted forums first instead of downloading unknown files.",
+        "C. Send the link to your older sister and ask her to download it on her computer first to test it.",
+        "D. Turn off your computer's antivirus software so the file can download faster."
+      ],
+      "correct_answer": "B. Check the official game website or trusted forums first instead of downloading unknown files."
+    }
+  ]
+}
 
 ---
 ## Entry 7: Stage #2
