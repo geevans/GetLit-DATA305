@@ -333,3 +333,28 @@ When designing the intermediary step (between stages 2 and 3) that scores the st
       )
       skill_matrix = extract_json(scoring_response.text)
       print(json.dumps(skill_matrix, indent=2))
+
+Resulting Output:
+
+      {
+        "skill_matrix": {
+          "online_safety": {
+            "score": 5,
+            "note": "This score suggests a very high understanding of online safety practices."
+          },
+          "media_literacy": {
+            "score": 3,
+            "note": "This score suggests some understanding of media literacy, with room for improvement."
+          },
+          "responsible_ai_use": {
+            "score": 1,
+            "note": "This score suggests a very low understanding of responsible AI use."
+          },
+          "file_device_management": {
+            "score": 5,
+            "note": "This score suggests a very high understanding of file and device management."
+          }
+        },
+        "overall_level": "intermediate",
+        "summary": "The student demonstrated strong skills in online safety and file/device management, and has some understanding of media literacy. However, there is significant room for improvement in responsible AI use."
+      }
