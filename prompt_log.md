@@ -29,7 +29,10 @@ The first prompt I wrote was the profile prompt which is the first thing the sys
           "self_reported_comfort": "",
       }
       """      
-      Resulting Output: "Hello! I'm ready to help you build a digital literacy curriculum. Let's get started!"
+
+Resulting Output: 
+      
+      "Hello! I'm ready to help you build a digital literacy curriculum. Let's get started!"
 ---
 ## Entry 3: Stage #1
 I iterated the profile prompt slightly to make it more conversational and natural than the initial version, which was slightly more rigid and place enough of a focus on actually getting to know the student. I ideally want my learning tool to feel like a human tutor but have the improved efficiency and accesibility of a digital assistant. Some of the biggest changes I made were adding descriptive adjectives that tell the AI how it should interact with/approach the student -- i.e. "friendly", "relaxed", "warm", "encouraging". I also specified that it's okay for the AI to make remarks or ask follow-ups before continuing, to increase the natural feel of the conversation. The revised prompt (profile_prompt) can be seen in my final code. Below is the output this revised prompt gave me: 
