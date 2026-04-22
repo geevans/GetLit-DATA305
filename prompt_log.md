@@ -71,7 +71,7 @@ Because I made these changes to the profile prompt, I had to go back to the set-
           "estimated_duration": ""
       }
 
-To what it currently is (see full code). 
+      To what it currently is (see full code). 
 ---
 ## Entry 5: Stage #1
 While I was still in the editing stages of my pipeline, I used a placeholder chunk of code to simulate the output the model would ideally produce for a hypothetical student that was using the curriculum generator. I placed it directly below my '# STAGE 1: Getting to know the student chunk'. This is what the placeholder code looked like:
