@@ -203,5 +203,86 @@ Resulting Output:
 
 ---
 ## Entry 7: Stage #2
-I decided to revise my quiz prompt so it was tighter and gave the AI less freedom to give the student non-sensical question distributions (i.e. three questions on file management and one question on the other areas), or ask too simple of questions. I also wrote out the format I wanted all six questions in so I could be sure the model would give the student and not just one. Finally, I specified that I wanted the model to use inferred_comfort from the student's profile (and not just make the questions age-appropriate) to inform question difficulty. I changed the prompt from what it was in Entry 6 to what it currently is (see full code).
+I decided to revise my quiz prompt so it was tighter and gave the AI less freedom to give the student non-sensical question distributions (i.e. three questions on file management and one question on the other areas), or ask too simple of questions. I also wrote out the format I wanted all six questions in so I could be sure the model would give the student and not just one. Finally, I specified that I wanted the model to use inferred_comfort from the student's profile (and not just make the questions age-appropriate) to inform question difficulty. I changed the prompt from what it was in Entry 6 to what it currently is (see quiz_prompt in my full code). Below is the output this revised prompt gave me.
+
+Resulting Output:
+
+{
+  "questions": [
+    {
+      "id": "Q1",
+      "area": "online_safety",
+      "question": "You are playing your favorite multiplayer game, and another player sends a message saying, 'Click this link and log in to get free legendary skins!' What is the safest thing to do?",
+      "options": [
+        "A. Ignore the message and do not click the link, as it is likely trying to steal your account password.",
+        "B. Click the link to see if it is real, but only enter a fake password to test it out.",
+        "C. Ask the player how they found the link before deciding to click on it.",
+        "D. Log in quickly and claim the skins before the link expires."
+      ],
+      "correct_answer": "A"
+    },
+    {
+      "id": "Q2",
+      "area": "online_safety",
+      "question": "You are creating a new YouTube channel to share your digital drawings. When setting up your public 'About Me' page, which piece of information is safe to include?",
+      "options": [
+        "A. The name of the middle school you currently attend.",
+        "B. Your personal cell phone number so fans can text you.",
+        "C. Your first name and your favorite styles of drawing.",
+        "D. Your full name and the city where you live."
+      ],
+      "correct_answer": "C"
+    },
+    {
+      "id": "Q3",
+      "area": "media_literacy",
+      "question": "You are watching a popular YouTuber play a newly released video game. They keep talking about how amazing the game is and mention a link in the description to buy it. How can you best tell if they were paid to say good things about the game?",
+      "options": [
+        "A. Read the comments to see if other viewers liked the game too.",
+        "B. Look for a 'Sponsored' or 'Paid Promotion' label on the video or in the description.",
+        "C. Check how many subscribers the YouTuber has; if they have over a million, they are always paid.",
+        "D. Watch the whole video to see if they say the word 'advertisement' at the very end."
+      ],
+      "correct_answer": "B"
+    },
+    {
+      "id": "Q4",
+      "area": "media_literacy",
+      "question": "When you type a question into Google, what is the best way to decide which link to click first?",
+      "options": [
+        "A. Always click the very first link at the top, even if it has the word 'Ad' next to it.",
+        "B. Choose the link that has the longest title, because it will usually have the most information.",
+        "C. Only click on links that come from a social media website or a gaming forum.",
+        "D. Look at the web address and a quick summary to see if the site looks trustworthy and relevant."
+      ],
+      "correct_answer": "D"
+    },
+    {
+      "id": "Q5",
+      "area": "responsible_ai_use",
+      "question": "You use an AI image generator to make a cool background for one of your YouTube videos. What is the most responsible way to handle this?",
+      "options": [
+        "A. Tell your viewers that you drew the background completely by yourself to get more likes.",
+        "B. Mention in the video description that you used an AI tool to help create the background.",
+        "C. Keep it a secret, because using AI means the video might get automatically deleted by YouTube.",
+        "D. Claim the AI's artwork as your own official drawing since you are the one who typed in the prompt."
+      ],
+      "correct_answer": "B"
+    },
+    {
+      "id": "Q6",
+      "area": "file_device_management",
+      "question": "You are starting to edit your first YouTube video and have downloaded a lot of different gameplay clips and background songs. What is the best way to keep these files organized on your computer?",
+      "options": [
+        "A. Save everything directly to your desktop so you can find it as soon as you turn on the computer.",
+        "B. Leave the files in your 'Downloads' folder and try to remember the dates you downloaded them.",
+        "C. Create a specific folder for the video project and save all related clips and audio inside it with clear names.",
+        "D. Put all the files into the computer's Trash bin to keep them out of the way until you are ready to edit."
+      ],
+      "correct_answer": "C"
+    }
+  ]
+}
+
+---
 
