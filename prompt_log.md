@@ -69,3 +69,33 @@ I iterated the profile prompt slightly to make it more conversational and natura
       Resulting Output: "Hey there! So glad you're here. I'm excited to just chat a bit and get to know you better. Think of me as your friendly guide in the digital world, and we're just having a relaxed first chat.
 
       To kick things off, what's your name, and what grade are you in?"
+
+## Entry 4: Stage #1
+Because I made these changes to the profile prompt, I had to go back to the set-up code and edit it accordingly. I changed student_profile, skill_matrix, and lesson from this: 
+      
+      student_profile = {
+          "name": "",
+          "age": 0,
+          "grade": "",
+          "interests": [],
+          "self_reported_comfort": "",  # "beginner", "intermediate", "advanced"
+          "goals": ""
+      }
+      
+      skill_matrix = {
+          "online_safety": 0,        # score 1-5
+          "media_literacy": 0,       # score 1-5
+          "responsible_ai_use": 0,   # score 1-5
+          "file_and_device_management": 0  # score 1-5
+      }
+      
+      lesson = {
+          "title": "",
+          "learning_objective": "",
+          "summary": "",
+          "interest_hook": "",  # personalized to student's interests
+          "activity": "",
+          "estimated_duration": ""
+      }
+
+To what it currently is (see full code). 
