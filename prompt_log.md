@@ -116,3 +116,39 @@ While I was still in the editing stages of my pipeline, I used a placeholder chu
       }
       
       print(json.dumps(student_profile, indent=2))
+---
+## Entry 6: Stage #2
+My second prompt is the quiz prompt which will build a brief quiz specifically tailored to each student's needs, age, and background. I chose four areas of digital literacy that I wanted the AI to assess the student's knowledge on. These included online safety, media literacy, responsible AI use, and file management. The student's profile is used at the input for this stage, and a skill matrix that that scores them in the four areas is the output. This was is the first version of my prompt:
+
+      """
+      You are a digital literacy assessment tool. Based on the student profile below,
+      generate 6 multiple choice questions to assess their actual digital literacy level.
+      
+      Student profile:
+      {json.dumps(student_profile, indent=2)}
+      
+      Rules:
+      - Make questions age-appropriate for this specific student
+      - Cover all four areas: online safety, media literacy, responsible AI use,
+        and file/device management (at least 1 question per area)
+      - Where possible, connect question scenarios to the student's interests
+      
+      Return ONLY a JSON object in this exact format, with no extra text:
+      {{
+          "questions": [
+              {{
+                  "id": "Q1",
+                  "area": "",
+                  "question": "",
+                  "options": ["A. ", "B. ", "C. ", "D. "],
+                  "correct_answer": ""
+              }}
+          ]
+      }}
+      """
+      Resulting Output:
+
+---
+## Entry 7: Stage #2
+I decided to revise my quiz prompt so it was tighter and gave the AI less freedom to give the student non-sensical question distributions (i.e. three questions on file management and one question on the other areas), or ask too simple of questions. I also wrote out the format I wanted all six questions in so I could be sure the model would give the student and not just one. Finally, I specified that I wanted the model to use inferred_comfort from the student's profile (and not just make the questions age-appropriate) to inform question difficulty.
+
