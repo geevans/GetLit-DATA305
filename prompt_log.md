@@ -32,44 +32,13 @@ The first prompt I wrote was the profile prompt which is the first thing the sys
       Resulting Output: "Hello! I'm ready to help you build a digital literacy curriculum. Let's get started!"
 ---
 ## Entry 3: Stage #1
-I iterated the profile prompt slightly to make it more conversational and natural than the initial version, which was slightly more rigid and place enough of a focus on actually getting to know the student. I ideally want my learning tool to feel like a human tutor but have the improved efficiency and accesibility of a digital assistant. Some of the biggest changes I made were adding descriptive adjectives that tell the AI how it should interact with/approach the student -- i.e. "friendly", "relaxed", "warm", "encouraging". I also specified that it's okay for the AI to make remarks or ask follow-ups before continuing, to increase the natural feel of the conversation. This was what I revised my profile prompt to be:
+I iterated the profile prompt slightly to make it more conversational and natural than the initial version, which was slightly more rigid and place enough of a focus on actually getting to know the student. I ideally want my learning tool to feel like a human tutor but have the improved efficiency and accesibility of a digital assistant. Some of the biggest changes I made were adding descriptive adjectives that tell the AI how it should interact with/approach the student -- i.e. "friendly", "relaxed", "warm", "encouraging". I also specified that it's okay for the AI to make remarks or ask follow-ups before continuing, to increase the natural feel of the conversation. The revised prompt (profile_prompt) can be seen in my final code. Below is the output this revised prompt gave me: 
 
-      """
-      You are a friendly digital literacy coach having a relaxed first conversation with a student. 
-      Your goal is to genuinely get to know them — not just collect answers, but understand who they are.
-      
-      Have a natural back-and-forth conversation. Ask ONE question at a time, and if a student says 
-      something interesting, it's okay to briefly react or ask a small follow-up before moving on. 
-      Keep your tone warm, casual, and encouraging — like a cool tutor, not a survey.
-      
-      Work through these topics (in order, but naturally):
-      1. Their name and what grade they're in
-      2. What they're into — hobbies, interests, things they do for fun
-      3. Their relationship with technology: instead of asking them to label themselves, ask something 
-         like "When you run into a tech problem, what do you usually do?" to get a real sense of comfort level
-      4. Something specific they wish they could do better with technology — give an example to spark ideas, 
-         like "some students want to make videos, others want to understand how apps work, others just want 
-         to feel less confused by stuff"
-      
-      Once you have all of this, return ONLY a JSON object in this exact format, with no extra text:
-      {
-          "name": "",
-          "grade": "",
-          "interests": [],
-          "self_reported_comfort": "",
-          "inferred_comfort": "",
-          "goals": ""
-      }
-      
-      Where:
-      - self_reported_comfort: how they described themselves (in their own words)
-      - inferred_comfort: your read on their actual level based on how they talked (beginner / intermediate / advanced)
-      - goals: a specific, concrete version of what they said they want to learn
-      """
-      Resulting Output: "Hey there! So glad you're here. I'm excited to just chat a bit and get to know you better. Think of me as your friendly guide in the digital world, and we're just having a relaxed first chat.
+Resulting Output: 
+      "Hey there! So glad you're here. I'm excited to just chat a bit and get to know you better. Think of me as your friendly guide in the digital world, and we're just having a relaxed first chat.
 
       To kick things off, what's your name, and what grade are you in?"
-
+---
 ## Entry 4: Stage #1
 Because I made these changes to the profile prompt, I had to go back to the set-up code and edit it accordingly. I changed student_profile, skill_matrix, and lesson from this: 
       
@@ -146,7 +115,8 @@ My second prompt is the quiz prompt which will build a brief quiz specifically t
           ]
       }}
       """
-      Resulting Output:
+      
+Resulting Output:
       {
         "questions": [
           {
@@ -226,5 +196,5 @@ My second prompt is the quiz prompt which will build a brief quiz specifically t
 
 ---
 ## Entry 7: Stage #2
-I decided to revise my quiz prompt so it was tighter and gave the AI less freedom to give the student non-sensical question distributions (i.e. three questions on file management and one question on the other areas), or ask too simple of questions. I also wrote out the format I wanted all six questions in so I could be sure the model would give the student and not just one. Finally, I specified that I wanted the model to use inferred_comfort from the student's profile (and not just make the questions age-appropriate) to inform question difficulty.
+I decided to revise my quiz prompt so it was tighter and gave the AI less freedom to give the student non-sensical question distributions (i.e. three questions on file management and one question on the other areas), or ask too simple of questions. I also wrote out the format I wanted all six questions in so I could be sure the model would give the student and not just one. Finally, I specified that I wanted the model to use inferred_comfort from the student's profile (and not just make the questions age-appropriate) to inform question difficulty. I changed the prompt from what it was in Entry 6 to what it currently is (see full code).
 
