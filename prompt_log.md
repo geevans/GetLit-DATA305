@@ -1,5 +1,5 @@
 # DATA305: Final Capstone Project
-GetLit -- Personalized Digital Literacy Curriculum Generator
+## GetLit -- Personalized Digital Literacy Curriculum Generator
 I am building an agentic AI system that takes in a student's current digital literacy level and personal interests, then generates a customized, interactive digital literacy learning program that is tailored to their profile and literacy needs. The goal of my tool is to address the current lack of personalization in digital learning. Because curricula are often written for a prototyped generic student, advanced learners can easily become bored and struggling learners can become lost. By adapting to the student’s realistic needs and abilities, this tool could help both the advanced student and the struggling one, as well as those that fall somewhere in between. 
 
 ---
