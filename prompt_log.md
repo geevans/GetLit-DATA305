@@ -285,4 +285,51 @@ Resulting Output:
       }
 
 ---
+## Entry 8: Stage #2
+When designing the intermediary step (between stages 2 and 3) that scores the student's quiz and populates the skill matrix, I initially implemented LLM-based scoring that used a scoring prompt to assess the answers. While this was consistent and cohesive with the rest of my pipeline -- in the fact that it used prompting -- it didn't really fit the nature of the task. I needed the scorer to reliably count correct answers per area and divide, which is a counting task (not a reasoning task) that it could easily mess up. Also, because models are probabalistic, it could produce different scores on different runs -- even in cases where the answer would/should be the same. Because LLM-based grading is ultimately unreliable, I decided to switch to deterministic scoring, so all quizzes are scored consistently and there's no room for ambiguity. Below is the original LLM-based version I had, and the output that resulted from it: 
 
+      student_answers = {
+          "Q1": "A",
+          "Q2": "B",
+          "Q3": "C",
+          "Q4": "A",
+          "Q5": "B",
+          "Q6": "D"
+      }
+      
+      scoring_prompt = f"""
+      You are scoring a digital literacy quiz. Below are the questions, the student's 
+      answers, and the correct answers embedded in the question data.
+      
+      Quiz data:
+      {json.dumps(quiz_data, indent=2)}
+      
+      Student answers:
+      {json.dumps(student_answers, indent=2)}
+      
+      Score the quiz and produce a skill matrix. For each of the four areas, give:
+      - A score from 1 (very low) to 5 (very high) based on how many questions 
+        in that area the student got right
+      - A one-sentence note on what the score suggests
+      
+      Then give an overall level: beginner, intermediate, or advanced.
+      
+      Return ONLY a JSON object in this exact format:
+      {{
+          "skill_matrix": {{
+              "online_safety":        {{"score": 0, "note": ""}},
+              "media_literacy":       {{"score": 0, "note": ""}},
+              "responsible_ai_use":   {{"score": 0, "note": ""}},
+              "file_device_management": {{"score": 0, "note": ""}}
+          }},
+          "overall_level": "",
+          "summary": ""
+      }}
+      """
+      
+      scoring_response = client.models.generate_content(
+          model='gemini-2.5-flash',
+          contents=scoring_prompt
+      )
+      skill_matrix = extract_json(scoring_response.text)
+      print(json.dumps(skill_matrix, indent=2))
