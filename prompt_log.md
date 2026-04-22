@@ -3,7 +3,7 @@
 I am building an agentic AI system that takes in a student's current digital literacy level and personal interests, then generates a customized, interactive digital literacy learning program that is tailored to their profile and literacy needs. The goal of my tool is to address the current lack of personalization in digital learning. Because curricula are often written for a prototyped generic student, advanced learners can easily become bored and struggling learners can become lost. By adapting to the student’s realistic needs and abilities, this tool could help both the advanced student and the struggling one, as well as those that fall somewhere in between. 
 
 ---
-## Entry 1: Pre-steps 
+## Entry 1: Pre-Steps 
 Before writing any prompts, I sketched out the three data structures the pipeline will use to pass information between stages: a student profile (Stage 1 output), a skill matrix (Stage 2 output), and a lesson object (Stage 3 output). I wanted to know what shape each prompt must produce, so that writing the actual prompts will be easier later down the line and the outputs will be consistent. I made "interest_hook" its own separate field in the lesson object instead of folding it into the summary so that the Stage 4 evaluator can score personalization on its own and doesn't have to infer it from the lesson description.
 
 ---
@@ -358,3 +358,5 @@ Resulting Output:
         "overall_level": "intermediate",
         "summary": "The student demonstrated strong skills in online safety and file/device management, and has some understanding of media literacy. However, there is significant room for improvement in responsible AI use."
       }
+
+## Entry 9: Stage #3
