@@ -38,6 +38,7 @@ Resulting Output:
 I iterated the profile prompt slightly to make it more conversational and natural than the initial version, which was slightly more rigid and place enough of a focus on actually getting to know the student. I ideally want my learning tool to feel like a human tutor but have the improved efficiency and accesibility of a digital assistant. Some of the biggest changes I made were adding descriptive adjectives that tell the AI how it should interact with/approach the student -- i.e. "friendly", "relaxed", "warm", "encouraging". I also specified that it's okay for the AI to make remarks or ask follow-ups before continuing, to increase the natural feel of the conversation. The revised prompt (profile_prompt) can be seen in my final code. Below is the output this revised prompt gave me: 
 
 Resulting Output: 
+      
       "Hey there! So glad you're here. I'm excited to just chat a bit and get to know you better. Think of me as your friendly guide in the digital world, and we're just having a relaxed first chat.
 
       To kick things off, what's your name, and what grade are you in?"
