@@ -66,6 +66,6 @@ I iterated the profile prompt slightly to make it more conversational and natura
       - inferred_comfort: your read on their actual level based on how they talked (beginner / intermediate / advanced)
       - goals: a specific, concrete version of what they said they want to learn
       """
-Resulting Output: "Hey there! So glad you're here. I'm excited to just chat a bit and get to know you better. Think of me as your friendly guide in the digital world, and we're just having a relaxed first chat.
+      Resulting Output: "Hey there! So glad you're here. I'm excited to just chat a bit and get to know you better.        Think of me as your friendly guide in the digital world, and we're just having a relaxed first chat.
 
-To kick things off, what's your name, and what grade are you in?"
+      To kick things off, what's your name, and what grade are you in?"
