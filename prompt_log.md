@@ -285,7 +285,7 @@ Resulting Output:
       }
 
 ---
-## Entry 8: Stage #2
+## Entry 8: Stage #2.5
 When designing the intermediary step (between stages 2 and 3) that scores the student's quiz and populates the skill matrix, I initially implemented LLM-based scoring that used a scoring prompt to assess the answers. While this was consistent and cohesive with the rest of my pipeline -- in the fact that it used prompting -- it didn't really fit the nature of the task. I needed the scorer to reliably count correct answers per area and divide, which is a counting task (not a reasoning task) that it could easily mess up. Also, because models are probabalistic, it could produce different scores on different runs -- even in cases where the answer would/should be the same. Because LLM-based grading is ultimately unreliable, I decided to switch to deterministic scoring, so all quizzes are scored consistently and there's no room for ambiguity. The code I used to create a deterministic-based scorer can be seen in my final pipeline. Below is the original LLM-based version I had, and the output that resulted from it: 
 
       student_answers = {
@@ -359,4 +359,25 @@ Resulting Output:
         "summary": "The student demonstrated strong skills in online safety and file/device management, and has some understanding of media literacy. However, there is significant room for improvement in responsible AI use."
       }
 
-## Entry 9: Stage #3
+## Entry 9: Stage #2.5
+While I did decide against using the LLM in the actual scorer and instead used deterministic scoring, I decided to reintegrate the LLM to summarize the student's score. I did this by creating a prompt called summary_prompt that interprets the skill matrix and explains its assessment of the student's current literacy level in kind, but straight-forward language, focusing on their current skills and where they can improve from there. This was more of an interpretation-based task, which is why I felt it made sense to use an LLM. I initially wrote a prompt that was simple and less focused on appeasing the student: 
+
+      """
+      You are summarizing the student's digital literacy quiz results in several sentences.
+      Don't reference their letter or numerical grades. Give them an honest assessment of their current literacy level.
+      """
+
+Resulting Output:
+
+      Overall level: beginner
+      
+      Summary: Jordan's current digital literacy is foundational at best, indicating a significant lack of essential skills for navigating the digital landscape safely and effectively. He demonstrated critical weaknesses in online safety, responsible AI use, and even fundamental file and device management, with these areas requiring substantial immediate attention. While he has a partial grasp of media literacy, there are still notable gaps that could leave him susceptible to misinformation. His ambition to create online content will be severely hampered until these core digital competencies are thoroughly developed.
+
+I appreciated the honesty of this output, but didn't like that the AI referred to the student in third person, as the AI should be talking directly to the student they're teaching. I also felt the AI was a bit too brutal in its feedback. To fix these weak areas, I revised my summary_prompt to what it currently is (see full code) and received the following output as a result. 
+
+Resulting Output:
+
+      Hi Jordan! It's clear you're already super comfortable navigating the digital world for gaming and YouTube, which is a fantastic starting point for your creative goals! Your quiz shows you have a lot of exciting room to grow, especially when it comes to understanding how to stay safe online and managing your digital files. A great first step will be diving into online safety, which will build a strong foundation for everything you want to do, including making your own videos.
+
+---
+
