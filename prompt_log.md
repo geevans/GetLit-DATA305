@@ -697,3 +697,4 @@ When creating my evaluation pipeline, I kept running into issues when I tried to
 
 ---
 ## Entry 14: Stage #4
+I returned to this section of the evaluation pipeline to re-run it several times over the course of 24 hours, and I continued to get 503 errors, so I decided to enlist Claude's coding advice, rather than Gemini's. It advised me to add retry logic with a delay (Gemini's hadn't has a delay) so the code would wait and try again instead of just crashing immediately. It additionally told me I should switch from gemini-pro-latest to gemini-2.0-flash, as 2.0-flash has higher rate limits. Finally, it instructed me to add a small time.sleep(3) between the personas in my runner loop, since I was previously trying to make such a large amount of API calls one go. 
