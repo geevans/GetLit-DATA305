@@ -377,7 +377,9 @@ I appreciated the honesty of this output, but didn't like that the AI referred t
 
 Resulting Output:
 
-      Hi Jordan! It's clear you're already super comfortable navigating the digital world for gaming and YouTube, which is a fantastic starting point for your creative goals! Your quiz shows you have a lot of exciting room to grow, especially when it comes to understanding how to stay safe online and managing your digital files. A great first step will be diving into online safety, which will build a strong foundation for everything you want to do, including making your own videos.
+      Overall level: beginner
+      
+      Summary: Hi Jordan! It's clear you're already super comfortable navigating the digital world for gaming and YouTube, which is a fantastic starting point for your creative goals! Your quiz shows you have a lot of exciting room to grow, especially when it comes to understanding how to stay safe online and managing your digital files. A great first step will be diving into online safety, which will build a strong foundation for everything you want to do, including making your own videos.
 
 ---
 
