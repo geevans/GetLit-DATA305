@@ -382,4 +382,74 @@ Resulting Output:
       Summary: Hi Jordan! It's clear you're already super comfortable navigating the digital world for gaming and YouTube, which is a fantastic starting point for your creative goals! Your quiz shows you have a lot of exciting room to grow, especially when it comes to understanding how to stay safe online and managing your digital files. A great first step will be diving into online safety, which will build a strong foundation for everything you want to do, including making your own videos.
 
 ---
+## Entry 10: Stage #3
+When I initially wrote my lesson_generation_prompt, I only had AI generate a lesson for the student's weakest area. As I experimented with this prompt, I realized I wasn't fully taking advantage of the AI's ability to generate a full-coverage curriculum, and should revise the prompt so it generates a lesson for the weakest skill first, but then continues on to generate a lesson for the others after. Deliberately sorting students' area scores allows the model to address the student's specific learning needs in the appropriate order, without fully omitting any area from the curriculum. I think it's good that I also didn't go to the other extreme of equally covering all areas, as this could be inefficient if a student has a good understanding of some of the content/areas and not need deeply comprehensive lessons on those. Below is my original code:
 
+      # STAGE 3: Find weakest area and generate one lesson
+       
+      weakest_area = min(skill_matrix, key=lambda a: skill_matrix[a]["score"])
+       
+      lesson_prompt = f"""
+      You are designing one personalized digital literacy lesson for a specific student. Make it genuinely
+      engaging for them — not a generic template.
+       
+      Student profile: {json.dumps(student_profile, indent=2)}
+      Skill matrix: {json.dumps(skill_matrix, indent=2)}
+      Overall level: {overall_level}
+      Target area: "{weakest_area}" — {skill_matrix[weakest_area]["note"]}
+       
+      Requirements:
+      - Calibrate difficulty to "{overall_level}"
+      - Open with a hook tied to their interests: {json.dumps(student_profile["interests"])}
+      - Activity must be concrete and completable in one sitting (not "research and discuss")
+       
+      Return ONLY a JSON object, no extra text or markdown:
+      {{
+          "title": "",
+          "area": "{weakest_area}",
+          "learning_objective": "Students will be able to...",
+          "summary": "",
+          "interest_hook": "",
+          "activity": "",
+          "estimated_duration": ""
+      }}
+      """
+       
+      lesson_response = client.models.generate_content(
+          model='gemini-2.5-flash',
+          contents=lesson_prompt
+      )
+      lesson = extract_json(lesson_response.text)
+
+      # STAGE 3: Readable printout
+       
+      AREA_LABELS = {
+          "online_safety":          "Online Safety",
+          "media_literacy":         "Media Literacy",
+          "responsible_ai_use":     "Responsible AI Use",
+          "file_device_management": "File & Device Management"
+      }
+       
+      label = AREA_LABELS.get(lesson["area"], lesson["area"])
+       
+      print("=" * 60)
+      print(f"  YOUR FIRST LESSON")
+      print(f"  For: {student_profile['name']}  |  Level: {overall_level.capitalize()}")
+      print("=" * 60)
+      print(f"\n  {scored_results['summary']}\n")
+      print(f"{'─' * 60}")
+      print(f"  {lesson['title']}")
+      print(f"  Area: {label}  |  Time: {lesson['estimated_duration']}")
+      print(f"\n  What you'll learn:")
+      print(f"    {lesson['learning_objective']}")
+      print(f"\n  Why this one first:")
+      print(f"    {lesson['summary']}")
+      print(f"\n  How we're starting:")
+      print(f"    {lesson['interest_hook']}")
+      print(f"\n  What you'll do:")
+      for line in lesson["activity"].strip().split("\n"):
+          print(f"    {line}")
+      print(f"\n{'=' * 60}")
+
+---
+ 
