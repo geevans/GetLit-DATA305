@@ -637,4 +637,59 @@ To fix this, I added another code chunk after "STAGE 3: Storing full curriculum 
 
  ---
 ## Entry 12: Stage #4
-When deciding how to run the evaluation, I had the option to do purely simulated and hardcode 2-3 test personas and run them through the pipeline, or to use the model to self-evaluate its own outputs. I ultimately chose to hardcode personas in. I additionally chose to place the eval framework in a separate file called eval_framework.ipynb. 
+When choosing how to evaluate my pipeline, I initially tried using a code chunk (in my main code file) with an LLM prompt that would ideally assess the quality of the curricula that lesson_generation_prompt created in the previous step. I thought it would make the most sense to use this LLM-based format because I had used this strategy consistently throughout the rest of my pipeline -- in profile_prompt, quiz_prompt, summary_prompt, and lesson_generation_prompt. I decided on four evaluation criteria: how well the quiz difficulty matches the student's inferred_comfort level (which the model determined), whether the lesson's content matches the student's overall_level, whether the lesson hooks actually relate to something a student said they were interested in, and whether the lesson correctly prioritizes the student's learning areas given their quiz score. This was the evaluation prompt I initially created to do this:
+
+      judge_prompt_template = """
+      You are an impartial evaluator assessing the quality of a personalized digital literacy curriculum
+      generated for a student. Score each criterion from 1–3 using only the definitions below.
+      
+      Student profile:
+      {student_profile}
+      
+      Quiz questions generated:
+      {quiz_data}
+      
+      Skill matrix:
+      {skill_matrix}
+      
+      Lessons generated:
+      {lessons}
+      
+      Score each criterion:
+      
+      1. quiz_difficulty_match: Does quiz difficulty match the student's inferred_comfort level (not self-reported)?
+         1 = clearly wrong level (too easy/hard for inferred level)
+         2 = roughly appropriate but inconsistent
+         3 = well-calibrated throughout
+      
+      2. lesson_hook_specificity: Do lesson hooks reference something concrete from the student's interests,
+         or are they generic?
+         1 = generic (could apply to any student)
+         2 = loosely connected
+         3 = specific and personal to this student
+      
+      3. lesson_difficulty_match: Does lesson content match the student's overall_level?
+         1 = clearly mismatched
+         2 = roughly appropriate but inconsistent
+         3 = well-calibrated throughout
+      
+      4. priority_order_logic: Does the lesson priority order (weakest area first) make sense
+         given the simulated quiz scores?
+         1 = illogical ordering
+         2 = mostly correct with minor issues
+         3 = correctly prioritizes weakest areas
+      
+      Return ONLY this JSON:
+      {{
+          "quiz_difficulty_match":      {{"score": 0, "note": ""}},
+          "lesson_hook_specificity":    {{"score": 0, "note": ""}},
+          "lesson_difficulty_match":    {{"score": 0, "note": ""}},
+          "priority_order_logic":       {{"score": 0, "note": ""}},
+          "overall_notes": ""
+      }}
+      """
+
+As I was developing this prompt, I realized this strategy wasn't necessarily going to give me the reliable results an evaluation model should, for the same reason that LLM-based scoring wouldn't have done as well as deterministic scoring in Stage 2.5. Because LLMs are probabalistic, there's a loss of consistency and formulaic logic -- which are two things an evaluation process must have to successfully do their job and evaluate all curricula the same. For this reason, I decided to switch my evaluation process and instead create a separate evaluation framework -- outside of my main file, and create personas that I could run through the pipeline. To do this, I started by creating a new file called eval_framework.ipynb. 
+
+---
+## Entry 13: Stage #4
