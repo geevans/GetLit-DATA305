@@ -636,3 +636,5 @@ To fix this, I added another code chunk after "STAGE 3: Storing full curriculum 
       ================================================================
 
  ---
+## Entry 12: Stage #4
+When deciding how to run the evaluation, I had the option to do purely simulated and hardcode 2-3 test personas and run them through the pipeline, or to use the model to self-evaluate its own outputs. I ultimately chose to hardcode personas in. I additionally chose to place the eval framework in a separate file called eval_framework.ipynb. 
