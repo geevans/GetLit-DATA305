@@ -451,5 +451,55 @@ When I initially wrote my lesson_generation_prompt, I only had AI generate a les
           print(f"    {line}")
       print(f"\n{'=' * 60}")
 
+This was the resulting output/lesson plan:
+
+      ============================================================
+        YOUR FIRST LESSON
+        For: Jordan  |  Level: Beginner
+      ============================================================
+      
+        Hi Jordan! It's clear you're already super comfortable navigating the digital world for gaming and YouTube, which is a fantastic starting point for your creative goals! Your quiz shows you have a lot of exciting room to grow, especially when it comes to understanding how to stay safe online and managing your digital files. A great first step will be diving into online safety, which will build a strong foundation for everything you want to do, including making your own videos.
+      
+      ────────────────────────────────────────────────────────────
+        Your Ultimate Online Shield: Building a Safe Creator Persona!
+        Area: Online Safety  |  Time: 45 minutes
+      
+        What you'll learn:
+          Jordan will be able to identify personal information that should not be shared publicly online and explain why protecting this information is crucial for online safety, especially as a content creator or gamer.
+      
+        Why this one first:
+          This lesson will empower Jordan to understand what kind of personal information is risky to share online. Through a creative activity, Jordan will design a safe online persona for their YouTube and gaming adventures, learning to distinguish between what's okay to share and what needs to be kept private to stay safe.
+      
+        How we're starting:
+          Hey Jordan, imagine you're about to launch your dream YouTube channel where you share your amazing drawings and epic gaming moments! Or maybe you're designing a new character for your favorite game. You'd want to protect your creations, your ideas, and yourself from anything that could mess up your online world, right? Well, just like a superhero needs a secret identity and a fortress to protect their HQ, you need a 'digital shield' to keep your online adventures awesome and safe! Let's design your ultimate safe online persona.
+      
+        What you'll do:
+          ### **Activity: 'My Safe Creator Profile' Design Challenge**
+          
+          **Materials:** Paper, drawing supplies (pencils, markers, colored pencils), or a digital drawing app/tablet.
+          
+          **Part 1: Design Your 'Online Creator Avatar' (15 minutes)**
+          Jordan, your first task is to draw or design an awesome avatar/persona that represents you online – for your YouTube channel, gaming profile, or wherever you create and play. Give your avatar a cool, creative username (NOT your real name!) that fits your interests. Think about what this avatar looks like, what they love to do (game, draw, make videos!). This is your public face online, so make it awesome, but remember it's not *you* you, it's *Online-You*.
+          
+          **Part 2: The 'Safe Profile' Checklist (20 minutes)**
+          Once your avatar is complete, it's time to build its 'Safe Creator Profile Card'. Imagine this is the 'About Me' section of your YouTube channel or your gaming profile. We're going to go through a list of information, and for each item, you'll decide if your *avatar* should share it publicly on their profile. Draw a checkmark for 'YES, safe to share' or an 'X' for 'NO, keep private'.
+          
+          **Information List:**
+          1.  **Your Avatar's Creative Username** (e.g., 'PixelArtPro', 'GameMasterJ')
+          2.  **Your Real Full Name**
+          3.  **Your Exact Age (e.g., '12 years old')**
+          4.  **Your General Age Range (e.g., 'Teen')**
+          5.  **The Name of Your School or Neighborhood**
+          6.  **The City/State Where You Live**
+          7.  **A Photo of Your Face**
+          8.  **A Photo of Your Artwork/Game Screenshots**
+          9.  **Your Personal Email Address**
+          10. **Your Favorite Gaming Platform/Game Username**
+          11. **Links to Your Public YouTube Channel/Art Portfolio**
+          12. **A Photo Showing Your Bedroom or House Background**
+          
+          **Part 3: Shield Up! (10 minutes)**
+          After you've marked each item, we'll talk through your choices. Why did you decide certain things were safe for your avatar to share, and others were not? We'll discuss the potential risks of sharing too much personal information online – like strangers trying to find you, steal your ideas, or pretend to be you. We'll reinforce that your online persona is a fantastic way to express yourself without giving away your real-world identity, keeping you, your creations, and your fun safe!
+
 ---
  
