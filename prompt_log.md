@@ -502,4 +502,137 @@ This was the resulting output/lesson plan:
           After you've marked each item, we'll talk through your choices. Why did you decide certain things were safe for your avatar to share, and others were not? We'll discuss the potential risks of sharing too much personal information online – like strangers trying to find you, steal your ideas, or pretend to be you. We'll reinforce that your online persona is a fantastic way to express yourself without giving away your real-world identity, keeping you, your creations, and your fun safe!
 
 ---
- 
+## Entry 11: Stage #3
+After revising my code/prompt so it generates a lesson for the weakest skill first and then continues on to generate a lesson for the others after, I was satisfied with the more comprehensive content the AI printed, but dissatisfied with the format of the output, which was hard to read and overall not user-friendly. I've pasted it below: 
+
+      {
+        "student_name": "Jordan",
+        "overall_level": "beginner",
+        "priority_order": [
+          "online_safety",
+          "responsible_ai_use",
+          "file_device_management",
+          "media_literacy"
+        ],
+        "lessons": [
+          {
+            "title": "Level 1: Shielding Your YouTube Channel",
+            "area": "online_safety",
+            "learning_objective": "Students will be able to identify personally identifiable information (PII) and apply strategies to protect it when creating online profiles and recording videos.",
+            "summary": "In this lesson, Jordan will learn how to protect their privacy as a new content creator by designing a safe channel name, drawing a custom avatar, and conducting a privacy sweep of a video recording space.",
+            "interest_hook": "Every big YouTuber and gamer has to start somewhere, but before you upload your first drawing tutorial or gameplay video, you need to set up your channel's defenses! Today, we are going to build your pro-YouTuber persona so you can share your content with the world while keeping your real-life identity totally hacker-proof.",
+            "activity": "Part 1: The Persona. Brainstorm a cool YouTube channel name that does not include your real name, birth year, or hometown. Part 2: The Avatar. Since you love drawing, sketch a custom profile character on a piece of paper to use as your channel icon so you don't have to use a real photo. Part 3: The Background Sweep. Look at the provided sample photo of a desk set up to record a YouTube video. Find and cross out the 3 'danger' items in the background that leak personal information to viewers (a middle school jacket, a piece of mail with an address, and a window showing a specific street sign).",
+            "estimated_duration": "30 minutes"
+          },
+          {
+            "title": "AI Co-Op Mode: Brainstorming Your First YouTube Video",
+            "area": "responsible_ai_use",
+            "learning_objective": "Students will be able to use an AI chatbot to brainstorm ideas and identify the difference between using AI for inspiration versus claiming AI-generated work as their own.",
+            "summary": "Jordan will practice using an AI chatbot as a 'Player 2' to brainstorm concepts for a new gaming or drawing YouTube channel. They will evaluate the AI's suggestions, pick the best one, and remix it by sketching an original thumbnail, learning that AI is a tool for inspiration, not a replacement for human creativity.",
+            "interest_hook": "Ready to launch your YouTube channel but feeling stuck on what your first video should be? Let's use AI as your 'Player 2'. AI is great at brainstorming gaming and drawing video ideas, but since you are the main character, you have to know how to control it so your channel stays 100% yours!",
+            "activity": "Step 1: The Prompt. Open a safe AI chatbot and type: 'Give me 3 YouTube video ideas for a beginner creator who loves drawing and playing [insert your favorite video game].' Step 2: The Glitch Hunt. Read the AI's ideas. AI isn't perfect, so cross out one idea that sounds boring, generic, or like a 'bot' wrote it. Circle the idea that sounds the most fun. Step 3: The Remix. Take the circled idea and make it your own. Spend 15 minutes sketching your own original YouTube thumbnail for this video on a piece of paper. Step 4: The Boss Rule. Write and sign the 'Creator's Pledge' at the bottom of your sketch: 'I used AI to brainstorm the idea, but this art and my channel are created by me.'",
+            "estimated_duration": "30 minutes"
+          },
+          {
+            "title": "The Ultimate Creator Setup: Organizing Your YouTube Files",
+            "area": "file_device_management",
+            "learning_objective": "Students will be able to create a standardized folder structure and apply clear naming conventions to media files (like gaming clips and drawings) so they are prepared for video editing.",
+            "summary": "In this lesson, Jordan will set up a professional file management system for a mock YouTube project. By creating specific folders and renaming messy file names, Jordan will learn the foundational organization skills required to successfully use video editing software without losing track of assets.",
+            "interest_hook": "Imagine you just recorded an epic gaming clip, drew a masterpiece for the thumbnail, and are finally ready to edit your first YouTube video. You open your video editor, but wait... 'File Not Found.' Where did the gameplay video go? Which 'Untitled.png' is your drawing? Instead of having to ask your older sister to help you hunt down missing files, let's build your very own 'Creator Setup.' Every successful YouTuber uses a specific folder system to keep their clips, audio, and art perfectly organized so editing is fast and easy.",
+            "activity": "Step 1: On your computer's Desktop, create a new master folder named 'YouTube_Video_01_Epic_Gameplay'. Step 2: Open that folder and create four sub-folders inside it: '1_Raw_Footage', '2_Audio', '3_Thumbnails_and_Drawings', and '4_Final_Exports'. Step 3: Create 3 blank text documents on your Desktop to represent your files. Step 4: Rename these mock files using 'YouTuber naming rules' so you know exactly what they are (for example: rename 'New Text Document.txt' to 'Minecraft_Boss_Battle_Raw.mp4', another to 'Voiceover_Take_1.wav', and the last one to 'Thumbnail_Drawing_Final.png'). Step 5: Click and drag each renamed file into the correct sub-folder you made in Step 2. Step 6: Take a screenshot of your perfectly organized master folder showing the sub-folders and your neatly named files inside them.",
+            "estimated_duration": "20 minutes"
+          },
+          {
+            "title": "The Creator's Eye: Spotting Clickbait & Sponsors",
+            "area": "media_literacy",
+            "learning_objective": "Students will be able to identify clickbait thumbnails and distinguish between a video's genuine content and paid sponsorships.",
+            "summary": "By analyzing a favorite gaming or drawing video, Jordan will learn to spot the difference between honest content, clickbait, and paid advertisements, building essential media literacy skills for future video creation.",
+            "interest_hook": "Since your goal is to make and edit your own YouTube videos, you need to learn the secret strategies big gaming and drawing channels use to get views and make money. Today, you're going to put on your 'Creator Goggles' and decode exactly how your favorite YouTubers use thumbnails and sponsors to hook their audience!",
+            "activity": "Step 1: Open YouTube and pick one recent video from your favorite gaming or drawing channel. Step 2: Before pressing play, look at the thumbnail and title. Write down exactly what you expect to happen in the video based on those two things. Step 3: Watch the first 5 minutes of the video. Step 4: The Clickbait Check - Write down whether the video actually matched the thumbnail so far. If it was exaggerated, write down why. Step 5: The Sponsor Check - Listen closely for ads. Write down the exact timestamp if the creator paused to promote a product (like a video game, VPN, or drawing tablet) and the specific phrase they used to tell you to buy it (like 'Use code...'). Step 6: As a future creator, rewrite the title of their video so that it is 100% honest and accurate to what actually happens in the video, while still trying to sound fun.",
+            "estimated_duration": "30 minutes"
+          }
+        ]
+      }
+
+To fix this, I added another code chunk after "STAGE 3: Storing full curriculum as JSON" that reformats the output into a more readable layout. This chunk can be seen in my final code under "STAGE 3: Readable printout". The resulting output is as follows:
+
+      ================================================================
+        DIGITAL LITERACY PLAN — JORDAN
+        Overall Level: Beginner
+      ================================================================
+      
+        Hi Jordan! It's clear you're already super comfortable navigating the digital world for gaming and YouTube, which is a fantastic starting point for your creative goals! Your quiz shows you have a lot of exciting room to grow, especially when it comes to understanding how to stay safe online and managing your digital files. A great first step will be diving into online safety, which will build a strong foundation for everything you want to do, including making your own videos.
+      
+        LESSON 1 OF 4  ·  Online Safety
+        Level 1: Shielding Your YouTube Channel
+        30 minutes
+      
+        Goal
+        Students will be able to identify personally identifiable information (PII) and apply strategies to protect it when creating online profiles and recording videos.
+      
+        Overview
+        In this lesson, Jordan will learn how to protect their privacy as a new content creator by designing a safe channel name, drawing a custom avatar, and conducting a privacy sweep of a video recording space.
+      
+        Opening Hook
+        Every big YouTuber and gamer has to start somewhere, but before you upload your first drawing tutorial or gameplay video, you need to set up your channel's defenses! Today, we are going to build your pro-YouTuber persona so you can share your content with the world while keeping your real-life identity totally hacker-proof.
+      
+        Activity
+        Part 1: The Persona. Brainstorm a cool YouTube channel name that does not include your real name, birth year, or hometown. Part 2: The Avatar. Since you love drawing, sketch a custom profile character on a piece of paper to use as your channel icon so you don't have to use a real photo. Part 3: The Background Sweep. Look at the provided sample photo of a desk set up to record a YouTube video. Find and cross out the 3 'danger' items in the background that leak personal information to viewers (a middle school jacket, a piece of mail with an address, and a window showing a specific street sign).
+      
+      ────────────────────────────────────────────────────────────────
+      
+        LESSON 2 OF 4  ·  Responsible AI Use
+        AI Co-Op Mode: Brainstorming Your First YouTube Video
+        30 minutes
+      
+        Goal
+        Students will be able to use an AI chatbot to brainstorm ideas and identify the difference between using AI for inspiration versus claiming AI-generated work as their own.
+      
+        Overview
+        Jordan will practice using an AI chatbot as a 'Player 2' to brainstorm concepts for a new gaming or drawing YouTube channel. They will evaluate the AI's suggestions, pick the best one, and remix it by sketching an original thumbnail, learning that AI is a tool for inspiration, not a replacement for human creativity.
+      
+        Opening Hook
+        Ready to launch your YouTube channel but feeling stuck on what your first video should be? Let's use AI as your 'Player 2'. AI is great at brainstorming gaming and drawing video ideas, but since you are the main character, you have to know how to control it so your channel stays 100% yours!
+      
+        Activity
+        Step 1: The Prompt. Open a safe AI chatbot and type: 'Give me 3 YouTube video ideas for a beginner creator who loves drawing and playing [insert your favorite video game].' Step 2: The Glitch Hunt. Read the AI's ideas. AI isn't perfect, so cross out one idea that sounds boring, generic, or like a 'bot' wrote it. Circle the idea that sounds the most fun. Step 3: The Remix. Take the circled idea and make it your own. Spend 15 minutes sketching your own original YouTube thumbnail for this video on a piece of paper. Step 4: The Boss Rule. Write and sign the 'Creator's Pledge' at the bottom of your sketch: 'I used AI to brainstorm the idea, but this art and my channel are created by me.'
+      
+      ────────────────────────────────────────────────────────────────
+      
+        LESSON 3 OF 4  ·  File & Device Management
+        The Ultimate Creator Setup: Organizing Your YouTube Files
+        20 minutes
+      
+        Goal
+        Students will be able to create a standardized folder structure and apply clear naming conventions to media files (like gaming clips and drawings) so they are prepared for video editing.
+      
+        Overview
+        In this lesson, Jordan will set up a professional file management system for a mock YouTube project. By creating specific folders and renaming messy file names, Jordan will learn the foundational organization skills required to successfully use video editing software without losing track of assets.
+      
+        Opening Hook
+        Imagine you just recorded an epic gaming clip, drew a masterpiece for the thumbnail, and are finally ready to edit your first YouTube video. You open your video editor, but wait... 'File Not Found.' Where did the gameplay video go? Which 'Untitled.png' is your drawing? Instead of having to ask your older sister to help you hunt down missing files, let's build your very own 'Creator Setup.' Every successful YouTuber uses a specific folder system to keep their clips, audio, and art perfectly organized so editing is fast and easy.
+      
+        Activity
+        Step 1: On your computer's Desktop, create a new master folder named 'YouTube_Video_01_Epic_Gameplay'. Step 2: Open that folder and create four sub-folders inside it: '1_Raw_Footage', '2_Audio', '3_Thumbnails_and_Drawings', and '4_Final_Exports'. Step 3: Create 3 blank text documents on your Desktop to represent your files. Step 4: Rename these mock files using 'YouTuber naming rules' so you know exactly what they are (for example: rename 'New Text Document.txt' to 'Minecraft_Boss_Battle_Raw.mp4', another to 'Voiceover_Take_1.wav', and the last one to 'Thumbnail_Drawing_Final.png'). Step 5: Click and drag each renamed file into the correct sub-folder you made in Step 2. Step 6: Take a screenshot of your perfectly organized master folder showing the sub-folders and your neatly named files inside them.
+      
+      ────────────────────────────────────────────────────────────────
+      
+        LESSON 4 OF 4  ·  Media Literacy
+        The Creator's Eye: Spotting Clickbait & Sponsors
+        30 minutes
+      
+        Goal
+        Students will be able to identify clickbait thumbnails and distinguish between a video's genuine content and paid sponsorships.
+      
+        Overview
+        By analyzing a favorite gaming or drawing video, Jordan will learn to spot the difference between honest content, clickbait, and paid advertisements, building essential media literacy skills for future video creation.
+      
+        Opening Hook
+        Since your goal is to make and edit your own YouTube videos, you need to learn the secret strategies big gaming and drawing channels use to get views and make money. Today, you're going to put on your 'Creator Goggles' and decode exactly how your favorite YouTubers use thumbnails and sponsors to hook their audience!
+      
+        Activity
+        Step 1: Open YouTube and pick one recent video from your favorite gaming or drawing channel. Step 2: Before pressing play, look at the thumbnail and title. Write down exactly what you expect to happen in the video based on those two things. Step 3: Watch the first 5 minutes of the video. Step 4: The Clickbait Check - Write down whether the video actually matched the thumbnail so far. If it was exaggerated, write down why. Step 5: The Sponsor Check - Listen closely for ads. Write down the exact timestamp if the creator paused to promote a product (like a video game, VPN, or drawing tablet) and the specific phrase they used to tell you to buy it (like 'Use code...'). Step 6: As a future creator, rewrite the title of their video so that it is 100% honest and accurate to what actually happens in the video, while still trying to sound fun.
+      
+      ================================================================
+
+ ---
