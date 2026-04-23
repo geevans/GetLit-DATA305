@@ -693,3 +693,7 @@ As I was developing this prompt, I realized this strategy wasn't necessarily goi
 
 ---
 ## Entry 13: Stage #4
+When creating my evaluation pipeline, I kept running into issues when I tried to run my three personas through the pipeline. This was likely because this step requires making a large number of API calls. To fix this, I used Gemini's built-in code editor to add a retry mechanism from the 'tenacity' library. I added this to ideally make it so the API calls were automatically retried if the server gave me 503 (unavailable) errors). While my intention was to smooth the tedious process of trying to run the code and hiting this error, I ultimately ended up removing it, because it used even more API calls and didn't help my code run. This was an important step in my process of realizing I just needed to be patient on certain tasks, and wait until the model wasn't in as high of demand. 
+
+---
+## Entry 14: Stage #4
