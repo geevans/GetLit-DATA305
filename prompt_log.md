@@ -777,4 +777,20 @@ When I first made the change to capture the Stage 1 output into student_profile 
       student_profile = extract_json(response.text)
       print(json.dumps(student_profile, indent=2))
 
+I also was using the following simulated output, but deleted it as I no longer needed it: 
+
+      # STAGE 1: Simulated output (placeholder until conversation loop is built)
+      
+      student_profile = {
+          "name": "Jordan",
+          "grade": "7th",
+          "interests": ["gaming", "drawing", "YouTube"],
+          "self_reported_comfort": "I usually just Google it or ask my older sister",
+          "inferred_comfort": "beginner",
+          "goals": "learn how to make and edit my own YouTube videos"
+      }
+      
+      print(json.dumps(student_profile, indent=2))
+
 ---
+
