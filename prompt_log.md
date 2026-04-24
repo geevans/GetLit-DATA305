@@ -716,7 +716,7 @@ As I was experimenting with the criteria I wanted to evaluate on, I decided to a
 
 ---
 ## Entry 1_: Stage #1
-The Stage 1 code had a structural problem that I hadn't addressed yet. This was that the profile_prompt was running and printing a response, but the output wasn't actually being captured anywhere. The cell directly below it overwrote student_profile with the hardcoded Jordan placeholder profile, meaning the pipeline just defaulted to Jordan regardless of what the model produced and stage 1 wasn't functioning as it should. Instead, it was just a prompt that ran and got ignored. To fix this I collapsed the two cells into one and replaced the hardcoded dict with student_profile = extract_json(response.text). I didn't have to change anything else because the extract_json function was already pulling the JSON out of the model's response even when there's surrounding text. Since I made this change, the profile the model generates in stage 1 flows into the quiz_prompt in Stage 2, making it an actual cohesive pipeline. This was the code I had previously: 
+As my code was at this point, the stage 1 code still had the problem that the profile_prompt was running and printing a response, but the output wasn't being captured anywhere. The cell directly below it overwrote student_profile with the hardcoded Jordan placeholder profile, meaning the pipeline just defaulted to Jordan regardless of what the model produced and stage 1 wasn't functioning as it should. Instead, it was just a prompt that ran and got ignored. To fix this I collapsed the two cells into one and replaced the hardcoded dict with student_profile = extract_json(response.text). I didn't have to change anything else because the extract_json function was already pulling the JSON out of the model's response even when there's surrounding text. Since I made this change, the profile the model generates in stage 1 flows into the quiz_prompt in Stage 2, making it an actual cohesive pipeline. This was the code I had previously: 
 
       response = client.models.generate_content(
           model='gemini-pro-latest',
@@ -726,6 +726,50 @@ The Stage 1 code had a structural problem that I hadn't addressed yet. This was 
 
 This was what I changed it to; I simply added the student_profile line:
 
+      response = client.models.generate_content(
+          model='gemini-pro-latest',
+          contents=profile_prompt
+      )
+      student_profile = extract_json(response.text)
+      print(json.dumps(student_profile, indent=2))
+
+---
+## Entry 1_: Stage #1
+When I first made the change to capture the Stage 1 output into student_profile using extract_json(response.text), I got a ValueError because there was no JSON in the response. The problem was that the profile_prompt was written as conversational intake, meaning the model's job was to ask questions one at a time and work through four topics before producing a profile, but I was calling it with no student being on the other end. All it was doing was outputing a conversational opener like "Hey! What's your name?" and wait for input that never came. extract_json failed because there was nothing to extract. To fix this properly (and make the tool actually functional), I replaced the generate_content call with a real conversation loop. Now the loop passes the full conversation history back to the model, prints the coach's message, takes input from the student using input(), and adds both of these to the history. The model keeps asking questions until it has covered all four topics and then outputs the JSON profile instead of another question. extract_json catches that, breaks the loop, and student_profile flows into Stage 2 exactly as before. The revised code can be seen in my final pipeline under Stage 1. This is what I had before: 
+
+      profile_prompt = """
+      You are a friendly digital literacy coach having a relaxed first conversation with a student.
+      Your goal is to genuinely get to know them — not just collect answers, but understand who they are.
+      
+      Have a natural back-and-forth conversation. Ask ONE question at a time, and if a student says
+      something interesting, it's okay to briefly react or ask a small follow-up before moving on.
+      Keep your tone warm, casual, and encouraging — like a cool tutor, not a survey.
+      
+      Work through these topics (in order, but naturally):
+      1. Their name and what grade they're in
+      2. What they're into — hobbies, interests, things they do for fun
+      3. Their relationship with technology: instead of asking them to label themselves, ask something
+         like "When you run into a tech problem, what do you usually do?" to get a real sense of comfort level
+      4. Something specific they wish they could do better with technology — give an example to spark ideas,
+         like "some students want to make videos, others want to understand how apps work, others just want
+         to feel less confused by stuff"
+      
+      Once you have all of this, return ONLY a JSON object in this exact format, with no extra text:
+      {
+          "name": "",
+          "grade": "",
+          "interests": [],
+          "self_reported_comfort": "",
+          "inferred_comfort": "",
+          "goals": ""
+      }
+      
+      Where:
+      - self_reported_comfort: how they described themselves (in their own words)
+      - inferred_comfort: your read on their actual level based on how they talked (beginner / intermediate / advanced)
+      - goals: a specific, concrete version of what they said they want to learn
+      """
+      
       response = client.models.generate_content(
           model='gemini-pro-latest',
           contents=profile_prompt
