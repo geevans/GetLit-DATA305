@@ -710,4 +710,10 @@ I returned to this section of the evaluation pipeline to re-run it several times
       
       All personas complete.
 
-I would rather keep trying at different times of the day and run into 503 errors than get this error, so I removed all of the code suggestions Claude had made and restored my code to its previous condition. 
+ ---
+ ## Entry 15: Stage #4
+As I was experimenting with the criteria I wanted to evaluate on, I decided to add a fifth, to slightly raise the bar for my pipeline. The criteria I added checks whether the quiz the model generated actually used each student's specific interests when writing the questions. I felt this was importtant because I wanted the quiz to be as customized and engaging as possible for the student. My stage 2 prompt explicitly instructs the model to connect at least 2 questions to the student's interests, so I wanted to ensure this instruction was actually being followed. 
+
+---
+## Entry 16: Stage #4
+
