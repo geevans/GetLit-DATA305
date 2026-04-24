@@ -697,6 +697,17 @@ When creating my evaluation pipeline, I kept running into issues when I tried to
 
 ---
 ## Entry 14: Stage #4
-I returned to this section of the evaluation pipeline to re-run it several times over the course of 24 hours, and I continued to get 503 errors, so I decided to enlist Claude's coding advice, rather than Gemini's. It advised me to add retry logic with a delay (Gemini's hadn't has a delay) so the code would wait and try again instead of just crashing immediately. This was a function called generate_with_retry, which I added to the second set-up cell. It additionally told me I should switch from gemini-pro-latest to gemini-2.0-flash, as 2.0-flash has higher rate limits. Finally, it instructed me to add a small time.sleep(3) between the personas in my runner loop, since I was previously trying to make such a large amount of API calls one go. When I implemented these changes, I started running into a 429 error instead of a 503 error. This meant I had sent too many requests in the given time window and the API was actively stopping me. I decided to increase the wait time in the generate_with_retry from 10 seconds to 30, and the pause between personas from 3 seconds to 30 seconds in time.sleep(). 
+I returned to this section of the evaluation pipeline to re-run it several times over the course of 24 hours, and I continued to get 503 errors, so I decided to enlist Claude's coding advice, rather than Gemini's. It advised me to add retry logic with a delay (Gemini's hadn't has a delay) so the code would wait and try again instead of just crashing immediately. This was a function called generate_with_retry, which I added to the second set-up cell. It additionally told me I should switch from gemini-pro-latest to gemini-2.0-flash, as 2.0-flash has higher rate limits. Finally, it instructed me to add a small time.sleep(3) between the personas in my runner loop, since I was previously trying to make such a large amount of API calls one go. When I implemented these changes, I started running into a 429 error instead of a 503 error. This meant I had sent too many requests in the given time window and the API was actively stopping me. I decided to increase the wait time in the generate_with_retry from 10 seconds to 30, and the pause between personas from 3 seconds to 30 seconds in time.sleep(). I was still running into problems, so I decided to revise my code so that my evaluator didn't have to make as many API calls (previously it had to make 4 calls -- one for each lesson -- per persona). To do this, I consolidated stage 3 into a single call that generates all 4 lessons at once, decreasing the total number of calls significantly. I also changed the model I was using from gemini-2.0-flash to gemini-pro-latest. This switch was what ultimately made my evaluator run. My revised code can be seen in the evaluation file. This was the output it generated:
+
+      Running pipeline for Jordan...
+        Done. Overall level: beginner, priority order: ['online_safety', 'responsible_ai_use', 'media_literacy', 'file_device_management']
+      
+      Running pipeline for Sarah...
+        Done. Overall level: advanced, priority order: ['responsible_ai_use', 'file_device_management', 'online_safety', 'media_literacy']
+      
+      Running pipeline for Marcus...
+        Done. Overall level: beginner, priority order: ['online_safety', 'responsible_ai_use', 'media_literacy', 'file_device_management']
+      
+      All personas complete.
 
 I would rather keep trying at different times of the day and run into 503 errors than get this error, so I removed all of the code suggestions Claude had made and restored my code to its previous condition. 
