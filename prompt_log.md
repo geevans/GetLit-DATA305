@@ -715,5 +715,22 @@ I returned to this section of the evaluation pipeline to re-run it several times
 As I was experimenting with the criteria I wanted to evaluate on, I decided to add a fifth, to slightly raise the bar for my pipeline. The criteria I added checks whether the quiz the model generated actually used each student's specific interests when writing the questions. I felt this was importtant because I wanted the quiz to be as customized and engaging as possible for the student. My stage 2 prompt explicitly instructs the model to connect at least 2 questions to the student's interests, so I wanted to ensure this instruction was actually being followed. 
 
 ---
-## Entry 16: Stage #4
+## Entry 1_: Stage #1
+The Stage 1 code had a structural problem that I hadn't addressed yet. This was that the profile_prompt was running and printing a response, but the output wasn't actually being captured anywhere. The cell directly below it overwrote student_profile with the hardcoded Jordan placeholder profile, meaning the pipeline just defaulted to Jordan regardless of what the model produced and stage 1 wasn't functioning as it should. Instead, it was just a prompt that ran and got ignored. To fix this I collapsed the two cells into one and replaced the hardcoded dict with student_profile = extract_json(response.text). I didn't have to change anything else because the extract_json function was already pulling the JSON out of the model's response even when there's surrounding text. Since I made this change, the profile the model generates in stage 1 flows into the quiz_prompt in Stage 2, making it an actual cohesive pipeline. This was the code I had previously: 
 
+      response = client.models.generate_content(
+          model='gemini-pro-latest',
+          contents=profile_prompt
+      )
+      print(response.text)
+
+This was what I changed it to; I simply added the student_profile line:
+
+      response = client.models.generate_content(
+          model='gemini-pro-latest',
+          contents=profile_prompt
+      )
+      student_profile = extract_json(response.text)
+      print(json.dumps(student_profile, indent=2))
+
+---
