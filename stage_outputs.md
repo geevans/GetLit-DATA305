@@ -5,44 +5,44 @@
 
 ## Part I: Stage #1 Output (My conversation with the AI)
 
-  === GetLit: Digital Literacy Coach ===
-  
-  Coach: Hey there! I'm so glad we get to chat today. I'm your digital literacy coach—think of me as a guide to help you get the most out of the tech you use every day, minus all the boring lectures. 
-  
-  To start us off and get to know you a bit, what's your name and what grade are you in?
-  
-  You: Grace
-  Coach: Nice to meet you, Grace! What grade are you in this year?
-  
-  You: I'm a junior in college
-  Coach: A junior in college! That is a super exciting (and usually pretty busy!) time. 
-  
-  When you're not buried in coursework or running to class, what do you like to do for fun? Any hobbies or interests you're really into right now?
-  
-  You: I really like hiking and cooking
-  Coach: Hiking and cooking sound like the perfect combo to decompress from classes! There's nothing quite like a good homemade meal after a long day on the trails. 
-  
-  Since we're going to be talking about tech, I'd love to know a bit about your relationship with it. When you run into a tech problem—like your laptop freezing up or an app acting weird—what is your usual go-to move?
-  
-  You: I do a hard reset
-  Coach: The classic "turn it off and back on again" method! Honestly, it's a classic for a reason—it fixes things 90% of the time. 
-  
-  Thinking about your daily routine as a college student, is there something specific you wish you could do better with technology? Maybe a skill you want to learn, or just a way to make managing your coursework a little easier?
-  
-  You: I want to get better at coding
-  
-  --- Profile complete ---
-  {
-    "name": "Grace",
-    "grade": "Junior in college",
-    "interests": [
-      "hiking",
-      "cooking"
-    ],
-    "self_reported_comfort": "Does a hard reset when facing tech problems",
-    "inferred_comfort": "Comfortable with basic troubleshooting",
-    "goals": "Get better at coding"
-  }
+    === GetLit: Digital Literacy Coach ===
+    
+    Coach: Hey there! I'm so glad we get to chat today. I'm your digital literacy coach—think of me as a guide to help you get the most out of the tech you use every day, minus all the boring lectures. 
+    
+    To start us off and get to know you a bit, what's your name and what grade are you in?
+    
+    You: Grace
+    Coach: Nice to meet you, Grace! What grade are you in this year?
+    
+    You: I'm a junior in college
+    Coach: A junior in college! That is a super exciting (and usually pretty busy!) time. 
+    
+    When you're not buried in coursework or running to class, what do you like to do for fun? Any hobbies or interests you're really into right now?
+    
+    You: I really like hiking and cooking
+    Coach: Hiking and cooking sound like the perfect combo to decompress from classes! There's nothing quite like a good homemade meal after a long day on the trails. 
+    
+    Since we're going to be talking about tech, I'd love to know a bit about your relationship with it. When you run into a tech problem—like your laptop freezing up or an app acting weird—what is your usual go-to move?
+    
+    You: I do a hard reset
+    Coach: The classic "turn it off and back on again" method! Honestly, it's a classic for a reason—it fixes things 90% of the time. 
+    
+    Thinking about your daily routine as a college student, is there something specific you wish you could do better with technology? Maybe a skill you want to learn, or just a way to make managing your coursework a little easier?
+    
+    You: I want to get better at coding
+    
+    --- Profile complete ---
+    {
+      "name": "Grace",
+      "grade": "Junior in college",
+      "interests": [
+        "hiking",
+        "cooking"
+      ],
+      "self_reported_comfort": "Does a hard reset when facing tech problems",
+      "inferred_comfort": "Comfortable with basic troubleshooting",
+      "goals": "Get better at coding"
+    }
 
 ## Part I: Stage #2 Output (Questions AI generated for me)
 
