@@ -689,7 +689,7 @@ When choosing how to evaluate my pipeline, I initially tried using a code chunk 
       }}
       """
 
-As I was developing this prompt, I realized this strategy wasn't necessarily going to give me the reliable results an evaluation model should, for the same reason that LLM-based scoring wouldn't have done as well as deterministic scoring in Stage 2.5. Because LLMs are probabalistic, there's a loss of consistency and formulaic logic -- which are two things an evaluation process must have to successfully do their job and evaluate all curricula the same. For this reason, I decided to switch my evaluation process and instead create a separate evaluation framework -- outside of my main file, and create personas that I could run through the pipeline. To do this, I started by creating a new file called eval_framework.ipynb. 
+As I was developing this prompt, I realized this strategy wasn't necessarily going to give me the reliable results an evaluation model should, for the same reason that LLM-based scoring wouldn't have done as well as deterministic scoring in Stage 2.5. Because LLMs are probabalistic, there's a loss of consistency and formulaic logic -- which are two things an evaluation process must have to successfully do their job and evaluate all curricula the same. For this reason, I decided to switch my evaluation process and instead create a separate evaluation framework -- outside of my main file, and create personas that I could run through the pipeline. To do this, I started by creating a new file called evaluation_framework.ipynb. 
 
 ---
 ## Entry 13: Stage #4
