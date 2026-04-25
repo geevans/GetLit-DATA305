@@ -4,7 +4,7 @@
 - In Part II, I have included the outputs from the evaluation pipeline, when I ran Jordan, Sarah, and Marcus through it.
 
 # Part I
-## Stage #1 Output (My conversation with the AI)
+## Stage #1 (My conversation with the AI)
 
     === GetLit: Digital Literacy Coach ===
     
@@ -45,7 +45,7 @@
       "goals": "Get better at coding"
     }
 
-## Stage #2 Output (Questions AI generated for me)
+## Stage #2 (Questions AI generated for me)
 
       {
         "questions": [
@@ -124,7 +124,7 @@
         ]
       }
 
-## Stage #2 Output (My completion of the quiz)
+## Stage #2 (My completion of the quiz)
   
       === Quiz Time! ===
       
@@ -174,7 +174,7 @@
       
       Quiz complete!
 
-## Stage #2 Output (Scoring of my quiz answers and building of skill matrix)
+## Stage #2 (Scoring of my quiz answers and building of skill matrix)
 
       {
         "online_safety": {
@@ -199,7 +199,7 @@
       
       Summary: Grace, your digital literacy quiz results are excellent – you've shown a strong understanding in every area, from online safety to managing your devices and using AI responsibly. This solid foundation means you're perfectly positioned to dive into your goal of getting better at coding, and exploring introductory programming concepts would be a fantastic next step.
 
-## Stage #3 Output (Sorting learning areas by priority)
+## Stage #3 (Sorting learning areas by priority)
 
       Lesson priority order:
         1. responsible_ai_use (score: 1) — strong — got everything right here
@@ -207,7 +207,7 @@
         3. online_safety (score: 2) — strong — got everything right here
         4. media_literacy (score: 2) — strong — got everything right here
 
-## Stage #3 Output (Generating lessons for each skill)
+## Stage #3 (Generating lessons for each skill)
 
       ✓ Generated lesson for: responsible_ai_use
       ✓ Generated lesson for: file_device_management
@@ -216,7 +216,7 @@
       
       Total lessons generated: 4
 
-## Stage #3 Output (Storing curriculum as JSON)
+## Stage #3 (Storing curriculum as JSON)
 
       {
         "student_name": "Grace",
@@ -267,7 +267,7 @@
         ]
       }
 
-## Stage #3 Output (Converting JSON into readable printout)
+## Stage #3 (Converting JSON into readable printout)
 
       ================================================================
         DIGITAL LITERACY PLAN — GRACE
@@ -349,7 +349,7 @@
       ================================================================
 
 # Part II
-## Step #1 Output (Creating the personas)
+## Step #1 (Creating the personas)
 
         Personas loaded: ['Jordan', 'Sarah', 'Marcus']
 
