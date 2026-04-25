@@ -695,20 +695,20 @@ As I was developing this prompt, I realized this strategy wasn't necessarily goi
 ## Entry 13: Stage #4
 Once I decided to build the evaluation framework as a separate file, the first thing I had to figure out was how to structure the personas. My initial instinct was to just reuse the Jordan placeholder profile I already had in the main pipeline and run the evaluation pipeline on that one profile. The output was technically right but it didn't mean much for evaluation-sake because it only showed me how the pipeline handled one type of a student (in this case a beginner with Jordan's specific interests), so I had no way of knowing whether it would still work for someone more advanced or with a completely different profile. I realized in order to adequately evaluate my pipeline I needed more than one case, so I created three distinct profiles that covered various tech comfort levels and backgrounds. I used Jordan (the beginner), Sarah (the advanced 10th grader), and Marcus to test if the pipeline would work for all types of students. This was what my initial code looked like, before adding the other two:
 
-  test_profile = {
-      "name": "Jordan",
-      "grade": "7th",
-      "interests": ["gaming", "drawing", "YouTube"],
-      "self_reported_comfort": "I usually just Google it or ask my older sister",
-      "inferred_comfort": "beginner",
-      "goals": "learn how to make and edit my own YouTube videos"
-  }
-
-  quiz_data, student_answers, skill_matrix, overall_level = run_stage2(test_profile)
-  prioritized_areas, curriculum = run_stage3(test_profile, skill_matrix, overall_level)
-
-  print(f"Overall level: {overall_level}")
-  print(f"Priority order: {prioritized_areas}")
+        test_profile = {
+            "name": "Jordan",
+            "grade": "7th",
+            "interests": ["gaming", "drawing", "YouTube"],
+            "self_reported_comfort": "I usually just Google it or ask my older sister",
+            "inferred_comfort": "beginner",
+            "goals": "learn how to make and edit my own YouTube videos"
+        }
+      
+        quiz_data, student_answers, skill_matrix, overall_level = run_stage2(test_profile)
+        prioritized_areas, curriculum = run_stage3(test_profile, skill_matrix, overall_level)
+      
+        print(f"Overall level: {overall_level}")
+        print(f"Priority order: {prioritized_areas}")
 
 ---
 ## Entry 13: Stage #4
