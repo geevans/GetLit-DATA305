@@ -715,6 +715,18 @@ Once I decided to build the evaluation framework as a separate file, the first t
 When creating my evaluation pipeline, I kept running into issues when I tried to run my three personas through the pipeline. This was likely because this step requires making a large number of API calls. To fix this, I used Gemini's built-in code editor to add a retry mechanism from the 'tenacity' library. I added this to ideally make it so the API calls were automatically retried if the server gave me 503 (unavailable) errors). While my intention was to smooth the tedious process of trying to run the code and hiting this error, I ultimately ended up removing it, because it used even more API calls and didn't help my code run. This was an important step in my process of realizing I just needed to be patient on certain tasks, and wait until the model wasn't in as high of demand. Alternatively, I resorted to asking Gemini's built-in assistant what times of the day typically have lower demand, and it told me "Off-peak hours: Late night or very early morning in your local time zone, when global internet traffic and API usage tend to be lower" and "Weekends: Sometimes demand can be lower on weekends compared to weekdays, especially during business hours". 
 
 ---
+## Entry 14: Stage #4 
+After I created the three personas, I added a loop to run each one through the pipeline and store the results. My first version of this loop didn't store anything, and instead just printed each persona's ouput and kept going. This meant by the time I started writing the scorecard, all the outputs were gone and I had to run everything again to see them again, which was an inefficient use of my time and API calls. I fixed this by adding a dictionary for the results that stores everything the pipeline produces for each persona (quiz data, student answers, curriculum, etc.) so I only have to run the pipeline once and can reference the stored ouputs as many times as I need when filling in the scorecard. This is the code I previously had:
+
+      for name, profile in personas.items():
+            print(f"Running pipeline for {name}...")
+            quiz_data, student_answers, skill_matrix, overall_level = run_stage2(profile)
+            prioritized_areas, curriculum = run_stage3(profile, skill_matrix, overall_level)
+            print(f"  Overall level: {overall_level}")
+            print(f"  Priority order: {prioritized_areas}")
+            print()
+
+---
 ## Entry 14: Stage #4
 I returned to this section of the evaluation pipeline to re-run it several times over the course of 24 hours, and I continued to get 503 errors, so I decided to enlist Claude's coding advice, rather than Gemini's. It advised me to add retry logic with a delay (Gemini's hadn't has a delay) so the code would wait and try again instead of just crashing immediately. This was a function called generate_with_retry, which I added to the second set-up cell. It additionally told me I should switch from gemini-pro-latest to gemini-2.0-flash, as 2.0-flash has higher rate limits. Finally, it instructed me to add a small time.sleep(3) between the personas in my runner loop, since I was previously trying to make such a large amount of API calls one go. When I implemented these changes, I started running into a 429 error instead of a 503 error. This meant I had sent too many requests in the given time window and the API was actively stopping me. I decided to increase the wait time in the generate_with_retry from 10 seconds to 30, and the pause between personas from 3 seconds to 30 seconds in time.sleep(). I was still running into problems, so I decided to revise my code so that my evaluator didn't have to make as many API calls (previously it had to make 4 calls -- one for each lesson -- per persona). To do this, I consolidated stage 3 into a single call that generates all 4 lessons at once, decreasing the total number of calls significantly. I also changed the model I was using from gemini-2.0-flash to gemini-pro-latest. This switch was what ultimately made my evaluator run. My revised code can be seen in the evaluation file. This was the output it generated:
 
@@ -731,7 +743,28 @@ I returned to this section of the evaluation pipeline to re-run it several times
 
  ---
  ## Entry 15: Stage #4
-As I was experimenting with the criteria I wanted to evaluate on, I decided to add a fifth, to slightly raise the bar for my pipeline. The criteria I added checks whether the quiz the model generated actually used each student's specific interests when writing the questions. I felt this was importtant because I wanted the quiz to be as customized and engaging as possible for the student. My stage 2 prompt explicitly instructs the model to connect at least 2 questions to the student's interests, so I wanted to ensure this instruction was actually being followed. 
+As I was experimenting with the criteria I wanted to evaluate on, I decided to add a fifth, to slightly raise the bar for my pipeline. The criteria I added checks whether the quiz the model generated actually used each student's specific interests when writing the questions. I felt this was importtant because I wanted the quiz to be as customized and engaging as possible for the student. My stage 2 prompt explicitly instructs the model to connect at least 2 questions to the student's interests, so I wanted to ensure this instruction was actually being followed. This was what my scorecard code looked like before I added the fifth criteria:
+
+      scorecard = {
+            "Jordan": {
+                "quiz_difficulty_match":   {"score": "pass", "note": ""},
+                "lesson_hook_specificity": {"score": "pass", "note": ""},
+                "lesson_difficulty_match": {"score": "pass", "note": ""},
+                "priority_order_logic":    {"score": "pass", "note": ""}
+            },
+            "Sarah": {
+                "quiz_difficulty_match":   {"score": "pass", "note": ""},
+                "lesson_hook_specificity": {"score": "pass", "note": ""},
+                "lesson_difficulty_match": {"score": "pass", "note": ""},
+                "priority_order_logic":    {"score": "pass", "note": ""}
+            },
+            "Marcus": {
+                "quiz_difficulty_match":   {"score": "pass", "note": ""},
+                "lesson_hook_specificity": {"score": "pass", "note": ""},
+                "lesson_difficulty_match": {"score": "pass", "note": ""},
+                "priority_order_logic":    {"score": "pass", "note": ""}
+            }
+        }
 
 ---
 ## Entry 16: Stage #1
