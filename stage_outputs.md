@@ -3,7 +3,8 @@
 - In Part I, I have included the outputs I received when I used the tool to generate a curriculum for my digitial literacy needs. 
 - In Part II, I have included the outputs from the evaluation pipeline, when I ran Jordan, Sarah, and Marcus through it.
 
-## Part I: Stage #1 Output (My conversation with the AI)
+# Part I:
+## Stage #1 Output (My conversation with the AI)
 
     === GetLit: Digital Literacy Coach ===
     
@@ -44,7 +45,7 @@
       "goals": "Get better at coding"
     }
 
-## Part I: Stage #2 Output (Questions AI generated for me)
+## Stage #2 Output (Questions AI generated for me)
 
       {
         "questions": [
@@ -123,7 +124,7 @@
         ]
       }
 
-## Part I: Stage #2 Output (My completion of the quiz)
+## Stage #2 Output (My completion of the quiz)
   
       === Quiz Time! ===
       
@@ -173,7 +174,7 @@
       
       Quiz complete!
 
-## Part I: Stage #2 Output (Scoring of my quiz answers and building of skill matrix)
+## Stage #2 Output (Scoring of my quiz answers and building of skill matrix)
 
       {
         "online_safety": {
@@ -198,7 +199,7 @@
       
       Summary: Grace, your digital literacy quiz results are excellent – you've shown a strong understanding in every area, from online safety to managing your devices and using AI responsibly. This solid foundation means you're perfectly positioned to dive into your goal of getting better at coding, and exploring introductory programming concepts would be a fantastic next step.
 
-## Part I: Stage #3 Output (Sorting learning areas by priority)
+## Stage #3 Output (Sorting learning areas by priority)
 
       Lesson priority order:
         1. responsible_ai_use (score: 1) — strong — got everything right here
@@ -206,7 +207,7 @@
         3. online_safety (score: 2) — strong — got everything right here
         4. media_literacy (score: 2) — strong — got everything right here
 
-## Part I: Stage #3 Output (Generating lessons for each skill)
+## Stage #3 Output (Generating lessons for each skill)
 
       ✓ Generated lesson for: responsible_ai_use
       ✓ Generated lesson for: file_device_management
@@ -215,7 +216,7 @@
       
       Total lessons generated: 4
 
-## Part I: Stage #3 Output (Storing curriculum as JSON)
+## Stage #3 Output (Storing curriculum as JSON)
 
       {
         "student_name": "Grace",
@@ -266,7 +267,7 @@
         ]
       }
 
-## Part I: Stage #3 Output (Converting JSON into readable printout)
+## Stage #3 Output (Converting JSON into readable printout)
 
       ================================================================
         DIGITAL LITERACY PLAN — GRACE
