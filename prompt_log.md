@@ -793,4 +793,18 @@ I also was using the following simulated output, but deleted it as I no longer n
       print(json.dumps(student_profile, indent=2))
 
 ---
+## Entry _: Stage #2
+The simulated answers cell in Stage 2 had the same structural problem that stage 1 used to have before I revised it. It was hardcoded with fixed answers (Q1: B, Q2: A, etc.) instead of being actually functional. Since the goal is a fully usable tool where a real student can actually take the quiz, I replaced it with an input loop that works the same way as the stage 1 conversation loop and iterates through each question in quiz_data, prints the question and its four options, and collects the student's answer using input(). When I was experimenting with this I also decided to add a feature that makes it so the student can only move on if they enter A, B, C, or D, and if they don't, it'll prompt them to try again. The answers get stored in student_answers exactly as before, so the scoring cell below it picks everything up without any changes. The revised code can be seen in my final pipeline under Stage 2: Collecting student answers. This was the code I had before:
 
+      # STAGE 2: Simulated Student Answers (for testing)
+      
+      student_answers = {
+          "Q1": "B",
+          "Q2": "A",
+          "Q3": "C",
+          "Q4": "A",
+          "Q5": "D",
+          "Q6": "A"
+      }
+
+---
