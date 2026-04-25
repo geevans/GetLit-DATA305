@@ -3,7 +3,7 @@
 - In Part I, I have included the outputs I received when I used the tool to generate a curriculum for my digitial literacy needs. 
 - In Part II, I have included the outputs from the evaluation pipeline, when I ran Jordan, Sarah, and Marcus through it.
 
-# Part I:
+# Part I
 ## Stage #1 Output (My conversation with the AI)
 
     === GetLit: Digital Literacy Coach ===
@@ -347,3 +347,227 @@
         1. Open Google Colab (a browser-based Python environment, so no local setup or 'hard resets' are required if you get stuck). 2. Upload the provided 'mystery_trail.jpg' file to the workspace. 3. Write a short Python script using the 'Pillow' (PIL) library to open the image and extract its 'getexif()' data. 4. Filter the raw data to isolate the GPSInfo tag. 5. Write a small function to convert the raw GPS degrees, minutes, and seconds into standard decimal coordinates. 6. Plug those exact coordinates into Google Maps to reveal the true location of the hike, verifying if the image's online claim matches reality.
   
       ================================================================
+
+# Part II
+## Step #1 Output (Creating the personas)
+
+        Personas loaded: ['Jordan', 'Sarah', 'Marcus']
+
+## Step #2 (Combining Stages #2-3 into a function to run personas through)
+
+        (No output created in this step.)
+
+## Step #3 (Running the three personas through the pipeline)
+
+        Running pipeline for Jordan...
+          Done. Overall level: beginner, priority order: ['online_safety', 'responsible_ai_use', 'media_literacy', 'file_device_management']
+        
+        Running pipeline for Sarah...
+          Done. Overall level: advanced, priority order: ['responsible_ai_use', 'file_device_management', 'online_safety', 'media_literacy']
+        
+        Running pipeline for Marcus...
+          Done. Overall level: beginner, priority order: ['online_safety', 'responsible_ai_use', 'media_literacy', 'file_device_management']
+        
+        All personas complete.
+
+## Step #3 (Reviewing pipeline outputs)
+
+        ============================================================
+          PERSONA: JORDAN
+          inferred_comfort: beginner
+          overall_level:    beginner
+          priority_order:   ['online_safety', 'responsible_ai_use', 'media_literacy', 'file_device_management']
+        
+          QUIZ QUESTIONS:
+            [online_safety] You are playing your favorite online multiplayer game, and a new teammate asks for your real name and the name of your school so you can 'be better friends.' What is the safest thing to do?
+              A. Tell them your real name but not your school.
+              B. Give a fake school name but your real first name.
+              C. Ignore the question or say you don't share personal info online. <-- correct
+              D. Tell them the information because you are on the same team.
+            [online_safety] You are reading the comments on a YouTube video about drawing setups. A comment says, 'Click here to get a free drawing tablet!' and includes a link. What should you do?
+              A. Click the link to see if the offer is real.
+              B. Do not click the link, because it could be a scam or a virus. <-- correct
+              C. Reply to the comment asking if anyone else got the free tablet.
+              D. Click the link but close it quickly if it looks suspicious.
+            [media_literacy] You are watching a video where a popular artist says, 'This is the best drawing software ever!' but you notice the word 'Sponsored' at the bottom of the screen. What does 'Sponsored' mean?
+              A. The artist made the software themselves.
+              B. The company that makes the software paid the artist to talk about it. <-- correct
+              C. The artist is giving away the software for free to their subscribers.
+              D. YouTube forced the artist to make a video about this software.
+            [media_literacy] You see a headline online that says, 'Aliens land in New York City!' but no other news websites are talking about it. How can you tell if the story is true?
+              A. Check to see if trusted, well-known news sites are also reporting the story. <-- correct
+              B. Assume it is true because someone posted it on the internet.
+              C. Share the story with your friends to see what they think.
+              D. Look at the comments to see if people believe it.
+            [responsible_ai_use] You have to write an essay for school about your favorite YouTuber. You find an AI chatbot that can write the whole essay for you in seconds. What is the most responsible way to use the AI?
+              A. Copy and paste the AI's essay and turn it in as your own work.
+              B. Ask the AI to write the essay, but change a few words so the teacher doesn't know.
+              C. Use the AI to brainstorm ideas or help make an outline, but write the essay yourself. <-- correct
+              D. Tell the AI to write the essay and just put the AI's name at the top of the paper.
+            [file_device_management] You just recorded three different video clips for your new YouTube channel, and they are saved on your computer as 'Video1', 'Video2', and 'Video3'. What is the best way to keep these files organized so you can easily edit them later?
+              A. Rename the files to describe what happens in them and put them in a specific 'YouTube Videos' folder. <-- correct
+              B. Leave the names as they are and keep them scattered on your computer's desktop.
+              C. Delete the original files as soon as you put them into your video editing software.
+              D. Put all your computer files into one giant folder so you only have to look in one place.
+        
+          SKILL MATRIX:
+            online_safety: 0 — needs work — missed most questions in this area
+            media_literacy: 1 — partial — some gaps worth addressing
+            responsible_ai_use: 0 — needs work — missed most questions in this area
+            file_device_management: 1 — strong — got everything right here
+        
+          LESSON HOOKS:
+            [online_safety] Keeping Your Channel Safe: Privacy for Future YouTubers
+              Hook: You are getting ready to launch your own YouTube gaming and drawing channel! But before you hit 'Upload' on your first video, you need to make sure hackers can't mess with your account or figure out where you live.
+              Activity preview: The Streamer Shield Activity: Jordan will review a mock 'About Me' page for a fake gaming YouTuber and highlight red fla...
+            [responsible_ai_use] Teaming Up with AI for Your YouTube Videos
+              Hook: Have you ever seen your favorite YouTubers use AI to come up with crazy video challenges or help draw thumbnails? AI can be an awesome co-op partner for your channel, but you have to know its cheat codes and its glitches.
+              Activity preview: The AI Brainstorm Challenge: Under supervision, Jordan will ask a free, safe AI chatbot to generate 5 ideas for a new ga...
+            [media_literacy] Spotting the Fakes: Clickbait, Scams, and Real Gaming News
+              Hook: Imagine you click on a video titled 'FREE ROBUX/V-BUCKS TRICK 2024 (NOT CLICKBAIT)' and suddenly your computer is acting weird. As a future YouTuber, how do you spot fake videos and make sure the content you share with your audience is real?
+              Activity preview: Clickbait Detective: Jordan will examine 5 different YouTube video thumbnails and titles provided by the teacher. They w...
+            [file_device_management] Setting Up Your Creator Studio Workspace
+              Hook: You already know your way around your files, which is awesome! But making YouTube videos means juggling huge gameplay clips, audio tracks, and your digital drawings. Let's organize your computer like a pro video editor so you never lose a masterpiece.
+              Activity preview: The YouTube Folder Hierarchy: Jordan will create a master 'YouTube Creator Studio' folder on their desktop. Inside it, t...
+        
+        ============================================================
+          PERSONA: SARAH
+          inferred_comfort: advanced
+          overall_level:    advanced
+          priority_order:   ['responsible_ai_use', 'file_device_management', 'online_safety', 'media_literacy']
+        
+          QUIZ QUESTIONS:
+            [online_safety] While pushing the source code for your new podcast website to a public GitHub repository, you realize you accidentally included the private API key for your audio hosting platform. What is the most secure immediate action to take?
+              A. Quickly commit a new change that deletes the API key from the file and push the update to GitHub.
+              B. Change your GitHub account password and enable two-factor authentication.
+              C. Revoke the API key on the audio hosting platform's developer dashboard and generate a new one. <-- correct
+              D. Make the GitHub repository private so no one else can see the commit history.
+            [online_safety] As a student journalist, you receive an urgent email from a supposed whistleblower with an encrypted zip file attachment. The email uses industry-specific terminology and references a recent article you wrote. What is the primary cybersecurity risk here, and how should you handle it?
+              A. The encrypted zip file might bypass your antivirus; you should forward it to a standard webmail account to scan it first.
+              B. This is a potential spear-phishing attack; you should verify the sender's identity through an independent, trusted communication channel before opening the file. <-- correct
+              C. The sender is using a man-in-the-middle attack; you should reply asking them to send the file via a cloud storage link instead.
+              D. This is a standard ransomware attempt; you should download the file to a USB drive and open it on your primary computer while disconnected from Wi-Fi.
+            [media_literacy] When researching a breaking news story for your school paper, you find a viral article citing a highly realistic, but unverified, video of a political figure. Which advanced media literacy technique is best for determining if the content is an AI-generated deepfake?
+              A. Run the article's text through a plagiarism checker to see if the author has copied the narrative from another news outlet.
+              B. Read the comments section of the viral article to see if a consensus of readers believes the video has been AI-generated.
+              C. Check if the website hosting the article has an SSL certificate (HTTPS) and a professional-looking domain name.
+              D. Perform a lateral reading exercise by checking independent fact-checking organizations and looking for digital artifacts in the video. <-- correct
+            [media_literacy] You notice a sudden influx of highly polarized, sensationalized news blogs on your social media feed. Knowing how algorithmic curation and programmatic AI content farms operate, what is the most likely reason these articles are being recommended to you?
+              A. The platform's algorithm optimizes for high-engagement metrics, and AI content farms exploit this by rapidly generating sensationalized content to trigger emotional responses. <-- correct
+              B. The AI content farms have hacked the platform's servers to force their articles into the feeds of users interested in journalism.
+              C. Your web browser's cache has been corrupted by a tracking cookie, causing it to exclusively display AI-generated news sites.
+              D. The platform's algorithm is prioritizing articles that have been cryptographically verified for accuracy by independent AI moderation tools.
+            [responsible_ai_use] You are writing a script to automate data collection for a journalism piece, and you use a Large Language Model (LLM) to summarize a complex dataset. What is the most significant ethical and practical risk of publishing this AI-generated summary directly?
+              A. The LLM will automatically copyright the summary, preventing your school newspaper from legally publishing the article under its own name.
+              B. The AI will embed hidden HTML tracking codes into the text, violating the privacy of the readers visiting your website.
+              C. The LLM may hallucinate plausible-sounding but factually incorrect data points, compromising your journalistic integrity if not manually verified. <-- correct
+              D. The LLM will permanently alter the original dataset in your local directory to match the summary it generated.
+            [file_device_management] You are managing gigabytes of raw, unedited lossless audio files for your podcast, along with the source code for your website. Which file management strategy provides the most robust protection against both hardware failure and accidental file overwriting?
+              A. Store all files solely on a high-capacity external Solid State Drive (SSD) and rely on the operating system's default auto-save feature while editing.
+              B. Implement a 3-2-1 backup strategy for the audio files (three copies, two different media types, one offsite/cloud) and use a version control system like Git for the website code. <-- correct
+              C. Compress the audio and code files together into a single ZIP archive every day and email the archive to yourself as a backup.
+              D. Sync your active working directory exclusively to a cloud storage service, ensuring local copies are deleted automatically to save hard drive space.
+        
+          SKILL MATRIX:
+            online_safety: 2 — strong — got everything right here
+            media_literacy: 2 — strong — got everything right here
+            responsible_ai_use: 1 — strong — got everything right here
+            file_device_management: 1 — strong — got everything right here
+        
+          LESSON HOOKS:
+            [responsible_ai_use] Algorithmic By-lines: Decoding AI in Journalism
+              Hook: As a journalist and web builder, you've probably noticed an influx of articles that sound just a little bit 'off.' Let's use your analytical skills to spot the ghosts in the machine and establish the ground rules for AI in modern publishing.
+              Activity preview: Read three provided 500-word news briefs: one human-written, one 100% AI-generated, and one AI-generated but human-edite...
+            [file_device_management] Version Control for Creators: Git for Audio and Code
+              Hook: Have you ever accidentally overwritten a perfect podcast edit or broken your website's CSS and couldn't undo it? Let's apply software engineering file management (Git and advanced directory structuring) to your podcasting and coding workflows.
+              Activity preview: Create a mock 'Podcast Project Directory' on your computer. Initialize a Git repository inside it. Write a '.gitignore' ...
+            [online_safety] Securing the Scoop: Cryptography for Journalists
+              Hook: Investigative journalists often communicate with whistleblowers who need to remain anonymous. If someone wanted to send you a sensitive audio file for your podcast, how would you ensure no one else could intercept it?
+              Activity preview: Use a free tool like Mailvelope, Kleopatra, or GPG in your terminal to generate your own PGP public/private key pair. En...
+            [media_literacy] Trusting Your Ears: Detecting Deepfake Audio
+              Hook: Since you already edit your own audio, you know what a natural human voice looks like on a timeline. But AI voices are getting terrifyingly good. Let's open up your audio editor and learn how to catch an AI deepfake by looking at the frequencies the human ear might miss.
+              Activity preview: Download two provided audio files (one real human voice, one AI clone). Open them in your preferred audio editor (Audaci...
+        
+        ============================================================
+          PERSONA: MARCUS
+          inferred_comfort: beginner
+          overall_level:    beginner
+          priority_order:   ['online_safety', 'responsible_ai_use', 'media_literacy', 'file_device_management']
+        
+          QUIZ QUESTIONS:
+            [online_safety] You get a direct message on TikTok from someone claiming to be a scout for a famous basketball team. They say they want to send you free gear and ask for your home address. What is the safest thing to do?
+              A. Show the message to a trusted adult before replying or clicking anything. <-- correct
+              B. Give them a fake address just to see what happens.
+              C. Reply and ask them to prove they are a real scout before sending your address.
+              D. Send them your address because you don't want to miss out on free gear.
+            [online_safety] You are creating an account for a new online game. Which of the following is the most secure password to use?
+              A. Your first name and the year you were born, like 'Marcus2010'.
+              B. The word 'password' followed by the number 1, like 'password1'.
+              C. A mix of letters, numbers, and symbols like 'B@sk3tb@ll99!'. <-- correct
+              D. The same password you use for your school email account.
+            [media_literacy] You see a viral TikTok video showing a famous basketball player making 20 full-court shots in a row without missing. How can you best check if this video is real or fake?
+              A. Read the comments on the TikTok video to see if other users think it is real.
+              B. Search for the story on reliable sports news websites to see if they reported it. <-- correct
+              C. Assume it is real because the video has millions of views and likes.
+              D. Watch the video a few more times to see if you can spot any editing mistakes.
+            [media_literacy] You are reading an article online and see a link at the bottom that says 'Sponsored' next to a shocking news headline. What does 'Sponsored' mean?
+              A. The article has been fact-checked and proven to be 100% true.
+              B. The website recommends this article because it is highly educational.
+              C. A famous person wrote the article and wants you to read it.
+              D. An advertiser paid to put that link there to get you to click on it. <-- correct
+            [responsible_ai_use] You use an AI tool to write a complete set of lyrics for a new music track you are producing. What is the most responsible way to share this song online?
+              A. Give credit to the AI tool for writing the lyrics in the song's description. <-- correct
+              B. Tell everyone you wrote the lyrics completely by yourself.
+              C. Keep it a secret so people think you are a genius songwriter.
+              D. Sell the lyrics to another musician and say they are originally yours.
+            [file_device_management] You have spent hours making a new beat on your computer. What is the best way to make sure you don't lose your music file if your computer crashes?
+              A. Keep the music program open on your computer at all times.
+              B. Save a copy of the file to a cloud drive or an external hard drive. <-- correct
+              C. Change the name of the file so the computer knows it is important.
+              D. Email the file to yourself and then delete it from your computer.
+        
+          SKILL MATRIX:
+            online_safety: 0 — needs work — missed most questions in this area
+            media_literacy: 1 — partial — some gaps worth addressing
+            responsible_ai_use: 0 — needs work — missed most questions in this area
+            file_device_management: 1 — strong — got everything right here
+        
+          LESSON HOOKS:
+            [online_safety] Don't Get Faked Out: Protecting Your Privacy on TikTok
+              Hook: Have you ever seen a TikTok promising a free pair of exclusive basketball sneakers or a free plugin for your music software if you just 'click the link in bio'? Let's look at why those are almost always traps designed to steal your information.
+              Activity preview: The Privacy Audit: Open your TikTok account (or use a provided simulated interface). Go through a 5-step checklist to ad...
+            [responsible_ai_use] AI Beats and Bytes: Using AI in Music Fairly
+              Hook: You've probably heard those viral AI covers on TikTok where it sounds exactly like a famous artist singing another artist's song. But who actually owns that track? Let's dive into how AI makes music and what that means for creators like you.
+              Activity preview: The AI Producer Challenge: Listen to two short audio clips and read two short text paragraphs. Guess which ones are AI-g...
+            [media_literacy] The Crossover: Spotting Fake News on Your Feed
+              Hook: A blockbuster NBA trade rumor blows up on TikTok, complete with an image of the player in his new jersey. Before you send it to your friends, how do you know if it's a real breaking news bomb or just a fan using Photoshop?
+              Activity preview: Fact-Check the Feed: Take a provided 'viral' social media post about a fake NBA rule change. Practice 'lateral reading' ...
+            [file_device_management] Master the Mix: Organizing Your Digital Studio
+              Hook: Imagine you just spent three hours making the perfect beat, but your computer crashes. When you restart, you can't find the file because it was saved as 'Untitled_Project_4'. Let's build a pro-level system for your music files so you never lose a track.
+              Activity preview: Folder Hierarchy Blueprint: Create a main folder on your desktop called 'Music_Production'. Inside, create subfolders fo...
+
+## Step #4 (Filling results into the scorecard)
+
+        Scorecard ready to fill in. Run the summary cell after scoring.
+
+## Step #4 (Printing the scorecard)
+
+        Criterion                         Jordan     Sarah    Marcus
+        ------------------------------------------------------------
+        quiz_difficulty_match               PASS      PASS      PASS
+        interest_integration_quiz           PASS      PASS      PASS
+        lesson_hook_specificity             PASS      PASS      PASS
+        lesson_difficulty_match             PASS      PASS      PASS
+        priority_order_logic                PASS      PART      PASS
+        
+        NOTES:
+        
+          Jordan:
+        
+          Sarah:
+            quiz_difficulty_match: This isn't a fail, but Sarah got everything right, which might mean the quiz wasn't hard enough to find her weak spots, or that she's genuinely strong across all areas. It's hard to tell with simulated answers.
+            priority_order_logic: Sarah scored 'strong' in all four areas, so there wasn't really a weakest area to put first. The pipeline picked responsible_ai_use first, but the scores were all the same so it didn't really matter which one went first. Priority ordering works correctly when there's score variance it isn't really meaningful here.
+        
+          Marcus:
+            priority_order_logic: Marcus and Jordan ended up with the exact same priority order, which looks a little suspicious. It's because the fixed random seed (random.seed(42)) gives both beginner personas the same answer pattern, not because the pipeline actually reasoned about Marcus specifically.
+        
