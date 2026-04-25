@@ -711,11 +711,11 @@ Once I decided to build the evaluation framework as a separate file, the first t
       print(f"Priority order: {prioritized_areas}")
 
 ---
-## Entry 13: Stage #4
+## Entry 14: Stage #4
 When creating my evaluation pipeline, I kept running into issues when I tried to run my three personas through the pipeline. This was likely because this step requires making a large number of API calls. To fix this, I used Gemini's built-in code editor to add a retry mechanism from the 'tenacity' library. I added this to ideally make it so the API calls were automatically retried if the server gave me 503 (unavailable) errors). While my intention was to smooth the tedious process of trying to run the code and hiting this error, I ultimately ended up removing it, because it used even more API calls and didn't help my code run. This was an important step in my process of realizing I just needed to be patient on certain tasks, and wait until the model wasn't in as high of demand. Alternatively, I resorted to asking Gemini's built-in assistant what times of the day typically have lower demand, and it told me "Off-peak hours: Late night or very early morning in your local time zone, when global internet traffic and API usage tend to be lower" and "Weekends: Sometimes demand can be lower on weekends compared to weekdays, especially during business hours". 
 
 ---
-## Entry 14: Stage #4 
+## Entry 15: Stage #4 
 After I created the three personas, I added a loop to run each one through the pipeline and store the results. My first version of this loop didn't store anything, and instead just printed each persona's ouput and kept going. This meant by the time I started writing the scorecard, all the outputs were gone and I had to run everything again to see them again, which was an inefficient use of my time and API calls. I fixed this by adding a dictionary for the results that stores everything the pipeline produces for each persona (quiz data, student answers, curriculum, etc.) so I only have to run the pipeline once and can reference the stored ouputs as many times as I need when filling in the scorecard. This is the code I previously had:
 
       for name, profile in personas.items():
@@ -727,7 +727,7 @@ After I created the three personas, I added a loop to run each one through the p
             print()
 
 ---
-## Entry 14: Stage #4
+## Entry 16: Stage #4
 I returned to this section of the evaluation pipeline to re-run it several times over the course of 24 hours, and I continued to get 503 errors, so I decided to enlist Claude's coding advice, rather than Gemini's. It advised me to add retry logic with a delay (Gemini's hadn't has a delay) so the code would wait and try again instead of just crashing immediately. This was a function called generate_with_retry, which I added to the second set-up cell. It additionally told me I should switch from gemini-pro-latest to gemini-2.0-flash, as 2.0-flash has higher rate limits. Finally, it instructed me to add a small time.sleep(3) between the personas in my runner loop, since I was previously trying to make such a large amount of API calls one go. When I implemented these changes, I started running into a 429 error instead of a 503 error. This meant I had sent too many requests in the given time window and the API was actively stopping me. I decided to increase the wait time in the generate_with_retry from 10 seconds to 30, and the pause between personas from 3 seconds to 30 seconds in time.sleep(). I was still running into problems, so I decided to revise my code so that my evaluator didn't have to make as many API calls (previously it had to make 4 calls -- one for each lesson -- per persona). To do this, I consolidated stage 3 into a single call that generates all 4 lessons at once, decreasing the total number of calls significantly. I also changed the model I was using from gemini-2.0-flash to gemini-pro-latest. This switch was what ultimately made my evaluator run. My revised code can be seen in the evaluation file. This was the output it generated:
 
       Running pipeline for Jordan...
@@ -742,7 +742,7 @@ I returned to this section of the evaluation pipeline to re-run it several times
       All personas complete.
 
  ---
- ## Entry 15: Stage #4
+ ## Entry 17: Stage #4
 As I was experimenting with the criteria I wanted to evaluate on, I decided to add a fifth, to slightly raise the bar for my pipeline. The criteria I added checks whether the quiz the model generated actually used each student's specific interests when writing the questions. I felt this was importtant because I wanted the quiz to be as customized and engaging as possible for the student. My stage 2 prompt explicitly instructs the model to connect at least 2 questions to the student's interests, so I wanted to ensure this instruction was actually being followed. This was what my scorecard code looked like before I added the fifth criteria:
 
       scorecard = {
@@ -767,7 +767,7 @@ As I was experimenting with the criteria I wanted to evaluate on, I decided to a
         }
 
 ---
-## Entry 16: Stage #1
+## Entry 18: Stage #1
 As my code was at this point, the stage 1 code still had the problem that the profile_prompt was running and printing a response, but the output wasn't being captured anywhere. The cell directly below it overwrote student_profile with the hardcoded Jordan placeholder profile, meaning the pipeline just defaulted to Jordan regardless of what the model produced and stage 1 wasn't functioning as it should. Instead, it was just a prompt that ran and got ignored. To fix this I collapsed the two cells into one and replaced the hardcoded dict with student_profile = extract_json(response.text). I didn't have to change anything else because the extract_json function was already pulling the JSON out of the model's response even when there's surrounding text. Since I made this change, the profile the model generates in stage 1 flows into the quiz_prompt in Stage 2, making it an actual cohesive pipeline. This was the code I had previously: 
 
       response = client.models.generate_content(
@@ -786,7 +786,7 @@ This was what I changed it to; I simply added the student_profile line:
       print(json.dumps(student_profile, indent=2))
 
 ---
-## Entry 1_: Stage #1
+## Entry 19: Stage #1
 When I first made the change to capture the Stage 1 output into student_profile using extract_json(response.text), I got a ValueError because there was no JSON in the response. The problem was that the profile_prompt was written as conversational intake, meaning the model's job was to ask questions one at a time and work through four topics before producing a profile, but I was calling it with no student being on the other end. All it was doing was outputing a conversational opener like "Hey! What's your name?" and wait for input that never came. extract_json failed because there was nothing to extract. To fix this properly (and make the tool actually functional), I replaced the generate_content call with a real conversation loop. Now the loop passes the full conversation history back to the model, prints the coach's message, takes input from the student using input(), and adds both of these to the history. The model keeps asking questions until it has covered all four topics and then outputs the JSON profile instead of another question. extract_json catches that, breaks the loop, and student_profile flows into Stage 2 exactly as before. The revised code can be seen in my final pipeline under Stage 1. This is what I had before: 
 
       profile_prompt = """
@@ -845,7 +845,7 @@ I also was using the following simulated output, but deleted it as I no longer n
       print(json.dumps(student_profile, indent=2))
 
 ---
-## Entry _: Stage #2
+## Entry 20: Stage #2
 The simulated answers cell in Stage 2 had the same structural problem that stage 1 used to have before I revised it. It was hardcoded with fixed answers (Q1: B, Q2: A, etc.) instead of being actually functional. Since the goal is a fully usable tool where a real student can actually take the quiz, I replaced it with an input loop that works the same way as the stage 1 conversation loop and iterates through each question in quiz_data, prints the question and its four options, and collects the student's answer using input(). When I was experimenting with this I also decided to add a feature that makes it so the student can only move on if they enter A, B, C, or D, and if they don't, it'll prompt them to try again. The answers get stored in student_answers exactly as before, so the scoring cell below it picks everything up without any changes. The revised code can be seen in my final pipeline under Stage 2: Collecting student answers. This was the code I had before:
 
       # STAGE 2: Simulated Student Answers (for testing)
