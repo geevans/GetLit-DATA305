@@ -1,8 +1,7 @@
-Model(s) used:
+# AI Use Disclosure 
+---
+## Model(s) used:
   - **Claude Sonnet 4.6**
-      - I used 
+      - Throughout my project, I primarily used Claude for two main tasks. The first was code generation for my pipeline design and evaluation structure. Before consulting Claude, I would first write out the logic and general structure I wanted each stage to have. This included mapping out the inputs (prompts I wanted to create), the outputs, and the order all of this would go in (i.e. first meeting the student, then giving them the quiz, then grading the quiz, then creating a curriculum) before I touched any code. Then, I fed my layout and plans to Claude and asked it to help me translate this into working Python code. I wanted to use this process so that I was the one directing the structure and Claude was merely filling in the gaps where I'm not as experienced -- in this case, for the technical coding. I was glad I used this strategy, as I was able to maintain relative control over the pipeline's design, while Claude handled the nitty gritty syntax and implementation details. The second way I used Claude was for my review process. After finishing each stage of my code -- whether in my main pipeline or eval framework -- I would upload a current copy of my .ipynb file to Claude, along with a prompt like, "Here is a current version of my pipeline after implementing stage [...]. Please read through the file and identify any potential concerns. If there is a more efficient way I can do this same function of [...], with fewer API calls, please identify it." I tried to be diligent about reviewing each step -- rather than waiting until I was done with all of my code and then giving it to Claude, as I wanted to ensure I was catching every potential mistake and being as efficient as possible. 
   - **Gemini 2.5 Flash**
-
-Example(s) of effective prompts I used:
-
-How AI affected my workflow:
+      - I used Google's Gemini 2.5 Flash as the primary base genAI model that powered my pipeline and evaluation framework. While I experimented with various different models throughout the iteration process (i.e. gemini-2.5-pro, gemini-2.0-flash), gemini-2.5-flash and gemini-pro-latest worked most consistently for my tool. At the start of my project, I considered using an Anthropic API instead of a google-genai model, but I ultimately decided to use a Gemini model, as I was more comfortable working with it -- from past course assignments -- and know that it has relatively generous limits on what you can do with its lower tiers. 
