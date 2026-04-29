@@ -1,5 +1,5 @@
 # GetLit 
-*Grace Evans · DATA 305 · May 1, 2026*
+**Grace Evans · DATA 305 · May 1, 2026**
 
 I built an agentic AI tool -- GetLit, short for 'Get literate' -- that takes in a student's current digital literacy level and personal interests, then generates a customized, interactive digital literacy learning program that is tailored to their profile and literacy needs. The goal of my tool was to address the current lack of personalization in digital learning. Because curricula are often written for a prototyped generic student, advanced learners can easily become bored and struggling learners can become lost. By adapting to the student’s realistic needs and abilities, this tool could help both the advanced student and the struggling one, as well as those that fall somewhere in between. 
 
