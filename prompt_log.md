@@ -860,3 +860,22 @@ The simulated answers cell in Stage 2 had the same structural problem that stage
       }
 
 ---
+## Entry 21: Stages #1-3
+Once I had completed the body of my code and my evaluation framework, I felt like my project was missing something because it didn't have a clean user interface. It was technically usable, but if a student who didn't know much about code (or tech in general) were to come in and try to use it, they'd likely be thrown off or overwhelmed by the dense and lengthy code cells between each of the cells they interacted with. I went in to talk to Dr. Ford about this, and he suggested playing around with Google Colab's built in features -- like form fields. After experimenting with these, I found out I could add labels for each step that essentially guide the student/user through the pipeline, telling them where they need to directly interact with it and where they can merely scroll through the code and ignore. In stage 1, for example, I added a text cell with the following:
+
+            ---
+            ## **Stage 1:** Meet Your Coach
+            
+            Your coach will ask you a few questions to get to know you — your name, grade, interests, and how comfortable you feel with technology. Just answer naturally, like you're texting a friend.
+            
+            **When the conversation is complete, you'll see "Profile complete" and your profile printed below.**
+            
+            > ▶ Run the cell below to start chatting.
+
+And then in the first code cell of this stage, I simply added the following two lines:
+
+            # @title Start your conversation with the coach
+            # @markdown Type your answers in the input box that appears below each coach message. Press Enter to submit.
+            # STAGE 1: Getting to know the student
+
+Doing this also allowed me to hide the code (and output) so the student didn't have to see it at all. This largely fixed the previous frustrations I had with the flow and appearance of my tool, while keeping it all in the Google Colab notebook. While I'd like to build this tool out more -- and fully intend on doing so -- beyond this project, adding these lines of code and text chunks provided a quick(er) fix that improved the tool's presentation without increasing my workload too substantially (as building a website interface would have, for example). 
